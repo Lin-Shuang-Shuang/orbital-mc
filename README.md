@@ -3,7 +3,7 @@
 NoTiFy
 
 ## Proposed level of achievement 
-Artemis
+Gemini
 
 ## Aim
 We aim to create a website whereby students can collaborate to
