@@ -44,7 +44,27 @@ To access these features, students would have to use other web applications or o
 csd
 
 ## Features
-* cs
+* ### Markup language support
+* ### Collaboration friendly
+* ### Supports multiple note-taking formats
+* ### frictionless
+
+## Timeline
+
+| Milestone | Tasks | Description | Contributor | Date |
+|-----------|-------|-------------|-------------|------|
+| 1         |       |             |             |      |
+|           |       |             |             |      |
+|           |       |             |             |      |
+|           |       |             |             |      |
+|           |       |             |             |      |
+|           |       |             |             |      |
+
+
+## Diagram
+
+
+
 
 
 
