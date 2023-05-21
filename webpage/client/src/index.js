@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import CreateAccount from "./pages/CreateAccount";
+import Register from "./pages/Register";
 import Login from "./pages/Login";
+import LoginHome from "./pages/LoginHome";
 
 export default function App() {
   return (
@@ -15,9 +15,9 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="Login" element={<Login />} />
-          <Route path="CreateAccount" element={<CreateAccount />} />
+          <Route path="Register" element={<Register />} />
+          <Route path="LoginHome" element = {<LoginHome />} />
         </Route>
-        
       </Routes>
     </BrowserRouter>
   );
@@ -30,7 +30,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+

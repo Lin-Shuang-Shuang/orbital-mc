@@ -12,7 +12,7 @@ export default function Navbar() {
             <Link to="/Login">Login</Link>
           </li>
           <li>
-            <Link to="/CreateAccount">Create Account</Link>
+            <Link to="/Register">Register</Link>
           </li>
         </ul>
       </nav>
