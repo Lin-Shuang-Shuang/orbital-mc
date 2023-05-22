@@ -6,8 +6,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import {useNavigate} from "react-router-dom";
 
 export default function Home() {
+    const navigate = useNavigate();
     return (
         <header>
             <AppBar position="relative">
@@ -47,7 +49,7 @@ export default function Home() {
                     </IconButton>
                 </Stack>
             </Container>
-        </header>
 
+        </header>
     );
 }

@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import LoginHome from "./pages/LoginHome";
+import AuthProvider from "./context/AuthContext";
 
 export default function App() {
   return (
@@ -25,6 +25,10 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>
 );
+
+

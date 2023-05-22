@@ -1,23 +1,25 @@
 import React from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import { Link } from "react-router-dom";
 import localAxios from '../api/Axios';
+import {useAuthContext} from '../hooks/useAuthContext';
 import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
-
 
 export default function Login() {
     const [input, setInput] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const { dispatch } = useAuthContext();
     const navigate = useNavigate();
     const loginURL = "/api/authRouter/login";
     const handleLogin = async (e) => {
         e.preventDefault();
         try { 
             const {data: response} = await localAxios.post(loginURL, {input, password});
-            localStorage.setItem("token", response.data);
+            const jsontoken = response.data;
+            localStorage.setItem("token", jsontoken);
+            dispatch({type: 'login', payload: jsontoken});
             console.log(response.data);
             navigate("/LoginHome");
         } catch(error) {

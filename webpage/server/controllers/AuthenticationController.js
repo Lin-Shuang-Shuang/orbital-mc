@@ -14,8 +14,7 @@ const register =  async (request, response) => {
     try {
         const newUser = await userModel.register(username, email, password);
         await newUser.save();
-        const newToken = generateToken(newUser._id);
-        response.json({newToken});
+        response.send({message: "successful registration"});
     } catch (error) {
         response.status(500).send({message: error.message});
     }
