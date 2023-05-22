@@ -71,16 +71,18 @@ userTemplate.statics.login = async function(input, password) {
             throw Error("Incorrect password");
         }
         return userExists;
+    } else {
+        const userExists = await this.findOne({username: input});
+        if (!userExists) {
+            throw Error("Incorrect username");
+        }
+        const passwordMatch = await bcrypt.compare(password, userExists.password);
+        if (!passwordMatch) {
+            throw Error("Incorrect password");
+        }
+        return userExists;
     }
-    const userExists = await this.findOne({username: input});
-    if (!userExists) {
-        throw Error("Incorrect username");
-    }
-    const passwordMatch = await bcrypt.compare(password, userExists.password);
-    if (!passwordMatch) {
-        throw Error("Incorrect password");
-    }
-    return userExists;
+    
 }
 
 const userModel = mongoose.model("users", userTemplate);

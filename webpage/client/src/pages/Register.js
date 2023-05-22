@@ -1,24 +1,31 @@
 import React from "react";
 import {useState} from "react";
-import Axios from "axios";
 import {useNavigate} from "react-router-dom";
+import localAxios from "../api/Axios";
 
 export default function Register() {
     const [username, setuserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
-  const Register = (e) => {
-    Axios.post("http://localhost:3002/api/authRouter/register/", {username, email, password}).then((response) => {
-      if (response.status === 200) {
-        navigate("/LoginHome");
-      }
-    });
+    const registerURL = "/api/authRouter/register/";
+
+  const handleRegister = async (e) => {
     e.preventDefault();
+    try {
+      const {data: response} = await localAxios.post(registerURL, {username, email, password});
+      localStorage.setItem("token", response.data);
+      console.log(response.data);
+      navigate("/LoginHome");
+    } catch(error) {
+      setError(error.response.data.message);
+      console.log(error.message);
+    }
   }
 
   return (
-    <form className="Register" onSubmit = {Register}>
+    <form className="Register" onSubmit = {handleRegister}>
         <input type = "username" placeholder = "Username..." 
           onChange={(event) => {setuserName(event.target.value)}}
           value = {username}

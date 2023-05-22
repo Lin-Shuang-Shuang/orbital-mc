@@ -17,7 +17,7 @@ const register =  async (request, response) => {
         const newToken = generateToken(newUser._id);
         response.json({newToken});
     } catch (error) {
-        response.json({mssg: error.message});
+        response.status(500).send({message: error.message});
     }
 }
 
@@ -29,7 +29,7 @@ const login = async (request, response) => {
         const newToken = generateToken(newUser._id);
         response.json({newToken});
     } catch (error) {
-        response.json({mssg: error.message});
+        response.status(500).send({message: error.message});
     }
 }
 
