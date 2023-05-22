@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -14,10 +15,10 @@ export default function Home() {
                     <Typography variant="h6" component="h1" flexGrow={1}>
                         NoTiFy
                     </Typography>
-                    <Button variant="contained">
-                        Sign in
+                    <Button variant="contained" component={Link} to="Register">
+                        Register
                     </Button>
-                    <Button variant="contained">
+                    <Button variant="contained" component={Link} to="Login">
                         Log in
                     </Button>
                     <IconButton sx={{ color: "white" }} >
@@ -46,7 +47,7 @@ export default function Home() {
                     </IconButton>
                 </Stack>
             </Container>
-
         </header>
+
     );
 }

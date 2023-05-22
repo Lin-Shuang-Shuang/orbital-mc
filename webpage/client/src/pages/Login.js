@@ -1,7 +1,11 @@
 import React from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import localAxios from '../api/Axios';
+import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
+import { Link as MuiLink } from "@mui/material";
+
 
 export default function Login() {
     const [input, setInput] = useState("");
@@ -23,16 +27,61 @@ export default function Login() {
     }
 
     return (
-        <form className = "Login" onSubmit = {handleLogin}>
-            <input type = "input" placeholder = "Username or email..." 
-            onChange={(event) => {setInput(event.target.value)}}
-            value = {input}
-            />
-            <input type = "password" placeholder = "Password..." 
-            onChange={(event) => {setPassword(event.target.value)}}
-            value = {password}
-            />
-            <button> Login </button> 
-        </form>
+        <>
+        <AppBar position="relative">
+            <Toolbar>
+                <Typography variant="h6" component="h1" flexGrow={1}>
+                    NoTiFy
+                </Typography>
+            </Toolbar>
+        </AppBar>
+            <Container maxWidth="sm">
+                <Stack component="login" marginTop={2} gap={2}>
+                    <Typography variant="h4" component="h2" align="center" paragraph="true">
+                        Log in
+                    </Typography>
+                </Stack>
+
+            <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
+                <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="input"
+                    label="Email Address/Username"
+                    name="email/username"
+                    autoComplete="email"
+                    autoFocus
+                    onChange={(event) => {setInput(event.target.value)}}
+                    value = {input}
+                />
+                <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    onChange={(event) => setPassword(event.target.value)}
+                    value={password}
+                />
+                <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                />
+
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                >
+                    Log In
+                </Button>
+            </Box>
+            </Container>
+</>
     );
 }
