@@ -1,9 +1,26 @@
 import React from "react";
 import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 import localAxios from "../api/Axios";
 import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  status: {
+    danger: '#e53e3e',
+  },
+  palette: {
+    primary: {
+      main: "##ffffff",
+      //contrastText: "#fff" //button text white instead of black
+    },
+    neutral: {
+      main: '#64748B',
+      contrastText: '#fff',
+    },
+  },
+});
 
 export default function Register() {
     const [username, setuserName] = useState("");
@@ -27,13 +44,15 @@ export default function Register() {
 
   return (
     <>
-        <AppBar position="relative">
+    <ThemeProvider theme={theme}>
+        <AppBar position="relative" color="neutral">
             <Toolbar>
-                <Typography variant="h6" component="h1" flexGrow={1}>
-                    NoTiFy
-                </Typography>
+                <Button variant="text" color="primary" component={Link} to="/" size="large">
+                                    NoTiFy
+                                </Button>
             </Toolbar>
         </AppBar>
+        </ThemeProvider>
         <Container maxWidth="sm">
             <Stack component="login" marginTop={4} gap={2}>
                 <Typography variant="h4" component="h2" align="center" paragraph="true">

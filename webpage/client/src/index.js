@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
+import './pages/Style.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import LoginHome from "./pages/LoginHome";
 import AuthProvider from "./context/AuthContext";
+//import RTE from "./pages/RTE.html";
 
 export default function App() {
   return (
