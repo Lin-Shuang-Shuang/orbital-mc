@@ -50,340 +50,89 @@ csd
 * ### frictionless
 
 ## Timeline
+## Milestone 1
 
-<table>
-  <thead>
-    <tr>
-      <th> Milestone
-      </th>
-      <th> 
-        Tasks
-      </th>
-      <th> 
-        Description
-      </th>
-      <th> 
-        Contributor
-      </th>
-      <th> 
-        Date
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="4">1
-      </td>
-      <td>
-        Creating website skeleton
-      </td>
-      <td>
-        Creating the webpages - home, login, sign up page
-      </td>
-<td>
-        Jeremy
-      </td>
-<td>
-        19-22 May
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Styling
-      </td>
-      <td>
-        Styling all 3 webpages
-      </td>
-<td>
-        Shuang Shuang
-      </td>
-<td>
-        21-23 May
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="2">
-        Implementing features
-      </td>
-      <td>
-        Log in
-      </td>
-<td>
-        Jeremy
-      </td>
-<td>
-        21-22 May
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Sign up
-      </td>
-      <td>
-        Shuang Shuang
-      </td>
-<td>
-        22-23 May
-      </td>
-    </tr>
-    <tr>
-      <td>
-        2
-      </td>
-      <td>
-        task
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="5">Backend
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;q=&amp;type=&amp;language=go&amp;sort=stargazers">
-          <img alt="Go Lang" src="https://img.shields.io/static/v1?label=&amp;message=Go.js&amp;color=00ADD8&amp;logo=go&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://go.dev/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/go-apod">
-          <img alt="go-apod" src="https://img.shields.io/static/v1?label=&amp;message=go-apod&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;q=&amp;type=&amp;language=javascript&amp;sort=stargazers">
-          <img alt="Node.js" src="https://img.shields.io/static/v1?label=&amp;message=Node.js&amp;color=339933&amp;logo=nodedotjs&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://nodejs.org/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/twitter-sentiment-visualisation">
-          <img alt="twitter-sentiment-visualisation" src="https://img.shields.io/static/v1?label=&amp;message=twitter-sentiment-visualisation&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/quick-example-of-testing-in-nodejs">
-          <img alt="quick-example-of-testing-in-nodejs" src="https://img.shields.io/static/v1?label=&amp;message=quick-example-of-testing-in-nodejs&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;language=Python">
-          <img alt="Python" src="https://img.shields.io/static/v1?label=&amp;message=Python&amp;color=3C78A9&amp;logo=python&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://www.python.org/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/gh-trending-no-cors">
-          <img alt="gh-trending-no-cors" src="https://img.shields.io/static/v1?label=&amp;message=gh-trending-no-cors&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/tfl-lift-availability-dash">
-          <img alt="tfl-lift-availability-dash" src="https://img.shields.io/static/v1?label=&amp;message=tfl-lift-availability-dash&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/pax">
-          <img alt="pax" src="https://img.shields.io/static/v1?label=&amp;message=pax&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;language=Java">
-          <img alt="Java" src="https://img.shields.io/static/v1?label=&amp;message=Java&amp;color=007396&amp;logo=java&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://www.java.com/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/Minesweper">
-          <img alt="Minesweper" src="https://img.shields.io/static/v1?label=&amp;message=Minesweper&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/AlternativeVoteSystem">
-          <img alt="AlternativeVoteSystem" src="https://img.shields.io/static/v1?label=&amp;message=AlternativeVoteSystem&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/TuneSender">
-          <img alt="TuneSender" src="https://img.shields.io/static/v1?label=&amp;message=TuneSender&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/TreasureHunt">
-          <img alt="TreasureHunt" src="https://img.shields.io/static/v1?label=&amp;message=TreasureHunt&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;language=PHP">
-          <img alt="PHP" src="https://img.shields.io/static/v1?label=&amp;message=PHP&amp;color=777BB4&amp;logo=php&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://www.php.net/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/revision-quizzes">
-          <img alt="revision-quizzes" src="https://img.shields.io/static/v1?label=&amp;message=revision-quizzes&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/intern-magnet">
-          <img alt="intern-magnet" src="https://img.shields.io/static/v1?label=&amp;message=intern-magnet&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/usermonkey">
-          <img alt="usermonkey" src="https://img.shields.io/static/v1?label=&amp;message=usermonkey&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="4">Mobile
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;q=&amp;type=&amp;language=swift">
-          <img alt="Swift" src="https://img.shields.io/static/v1?label=&amp;message=Swift&amp;color=F05138&amp;logo=swift&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://www.swift.org/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/hasami-shogi">
-          <img alt="hasami-shogi" src="https://img.shields.io/static/v1?label=&amp;message=hasami-shogi&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/Spotter">
-          <img alt="Spotter" src="https://img.shields.io/static/v1?label=&amp;message=Spotter&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;language=Kotlin">
-          <img alt="Kotlin" src="https://img.shields.io/static/v1?label=&amp;message=Kotlin&amp;color=7F52FF&amp;logo=kotlin&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://kotlinlang.org/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/anti-theft-charge">
-          <img alt="anti-theft-charge" src="https://img.shields.io/static/v1?label=&amp;message=anti-theft-charge&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;q=&amp;type=&amp;language=dart">
-          <img alt="Flutter" src="https://img.shields.io/static/v1?label=&amp;message=Flutter&amp;color=02569B&amp;logo=flutter&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://flutter.dev/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/nfu">
-          <img alt="nfu" src="https://img.shields.io/static/v1?label=&amp;message=nfu&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;language=Java,Kotlin">
-          <img alt="Android" src="https://img.shields.io/static/v1?label=&amp;message=Android&amp;color=3DDC84&amp;logo=android&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://developer.android.com/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/Minesweper">
-          <img alt="Minesweper" src="https://img.shields.io/static/v1?label=&amp;message=Minesweper&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/anti-theft-charge">
-          <img alt="anti-theft-charge" src="https://img.shields.io/static/v1?label=&amp;message=anti-theft-charge&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/TuneSender">
-          <img alt="TuneSender" src="https://img.shields.io/static/v1?label=&amp;message=TuneSender&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/TreasureHunt">
-          <img alt="TreasureHunt" src="https://img.shields.io/static/v1?label=&amp;message=TreasureHunt&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/got-home-safe">
-          <img alt="got-home-safe" src="https://img.shields.io/static/v1?label=&amp;message=got-home-safe&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/Study-Time">
-          <img alt="Study-Time" src="https://img.shields.io/static/v1?label=&amp;message=Study-Time&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="4">Other
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;q=&amp;type=&amp;language=shell">
-          <img alt="Bash" src="https://img.shields.io/static/v1?label=&amp;message=Bash&amp;color=4EAA25&amp;logo=gnubash&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://www.gnu.org/software/bash/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/minimal-terminal-prompt">
-          <img alt="minimal-terminal-prompt" src="https://img.shields.io/static/v1?label=&amp;message=minimal-terminal-prompt&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Lissy93?tab=repositories&amp;q=&amp;type=&amp;language=Dockerfile">
-          <img alt="Docker" src="https://img.shields.io/static/v1?label=&amp;message=Docker&amp;color=2496ED&amp;logo=docker&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://docker.com/">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/docker-tcpdump">
-          <img alt="docker-tcpdump" src="https://img.shields.io/static/v1?label=&amp;message=docker-tcpdump&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/dashy">
-          <img alt="dashy" src="https://img.shields.io/static/v1?label=&amp;message=dashy&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#">
-          <img alt="Config" src="https://img.shields.io/static/v1?label=&amp;message=Config&amp;color=E50695&amp;logo=diaspora&amp;logoColor=FFFFFF" />
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/dotfiles">
-          <img alt="dotfiles" src="https://img.shields.io/static/v1?label=&amp;message=dotfiles&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/espanso-config">
-          <img alt="espanso-config" src="https://img.shields.io/static/v1?label=&amp;message=espanso-config&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/conky-system-stats-widget">
-          <img alt="conky-system-stats-widget" src="https://img.shields.io/static/v1?label=&amp;message=conky-system-stats-widget&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/Brewfile">
-          <img alt="Brewfile" src="https://img.shields.io/static/v1?label=&amp;message=Brewfile&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#">
-          <img alt="Markdown" src="https://img.shields.io/static/v1?label=&amp;message=Markdown&amp;color=000000&amp;logo=markdown&amp;logoColor=FFFFFF" />
-        </a> 
-        <a href="https://en.wikipedia.org/wiki/Markdown">🌐
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Lissy93/personal-security-checklist">
-          <img alt="personal-security-checklist" src="https://img.shields.io/static/v1?label=&amp;message=personal-security-checklist&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a> 
-        <a href="https://github.com/Lissy93/awesome-privacy">
-          <img alt="awesome-privacy" src="https://img.shields.io/static/v1?label=&amp;message=awesome-privacy&amp;color=000605&amp;logo=github&amp;logoColor=FFFFFF&amp;labelColor=000605" />
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-## Diagram
+| Tasks                                                        | Description                                                  | Member Assigned to task   | Date              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------- | ----------------- |
+| Preliminary familiarization with required software and materials. | Familiarization with JavaScript.<br />Familiarization with React, NodeJS and MongoDB. | Jeremy<br />Shuang Shuang | 13/5/23 - 20/5/23 |
+| Website skeleton                                             | Full stack React-based webpage using NodeJS, ExpressJS with MongoDB integration. Registration feature implemented. | Jeremy                    | 20/5/23 - 22/5/23 |
+| Website styling                                              | Webpage styling with React and HTML.                         | Shuang Shuang             | 21/5/23 - 28/5/23 |
+| Login, logout and authentication                             | Implementation of login, logout and JsonWebToken based authentication. | Jeremy                    | 22/5/23 - 23/5/23 |
+| Rich text editor integration                                 | Rich text editor page implemented with external packages.    | Shuang Shuang             | 23/5/23           |
+| Research into required packages and ideation on implementation of key<br />features. |                                                              | Jeremy<br />Shuang Shuang | 24/5/23 - 26/5/23 |
+| Preparation for Milestone 1                                  | Refactoring code and debugging, preparing documentation.     | Jeremy<br />Shuang Shuang | 27/5/23 - 28/5/23 |
 
+### Evaluation at Milestone 1: 29/5/23
 
+- Ideation
+- Proof-of-concept:
+  - Webapp built with MERN stack
+    - Basic features:
+      - Registration
+      - Login
+      - Authentication
+    - Key features:
+      - Rich text editor
 
+## Milestone 2
 
+| Tasks                                                        | Description                                                  | Member Assigned to task   | Date                               |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------- | ---------------------------------- |
+| Refactoring code                                             | Refactoring and debugging code from Milestone 1 in order to support further features. | Jeremy<br />Shuang Shuang | 29/5/23 - 4/6/23 <br />(Week 4)    |
+| Text editor                                                  | Building a rich text editor from the ground up.              | Jeremy<br />Shuang Shuang | 29/5/23 - 11/6/23 <br />(Week 4/5) |
+| MarkUp language support in text editor                       | Planned MarkUp languages to be supported: MarkDown, LaTeX.   | Jeremy<br />Shuang Shuang | 4/6/23 - 18/6/23 <br />(Week 5/6)  |
+| Integration of file uploading, editing and downloading with text editor. | Allows users to open up the files they upload and edit them. | Jeremy                    | 11/6/23 - 18/6/23 <br />(Week 6)   |
+| Further types of notes.                                      | Implementation of post-it notes.                             | Shuang Shuang             | 11/6/23 - 18/6/23 <br />(Week 6)   |
+| Implementation of basic file sharing                         | Allow 2 users to share files with each other.                | Jeremy<br />Shuang Shuang | 11/6/23 - 18/6/23 <br />(Week 6)   |
+| Preparation for Milestone 2                                  | Refactoring code and integration of features. Hosting of website, database, testing and debugging | Jeremy<br />Shuang Shuang | 18/6/23 - 26/6/23<br />(Week 7)    |
 
+### Evaluation at Milestone 2: 26/5/23
 
+- First working prototype:
+  - File management:
+    - Upload
+    - Sharing between 2 accounts
+    - Editing
+    - Download 
+  - Text editor:
+    - Rich text editor
+    - MarkDown, LaTeX support
+  - Further features:
+    - Post-it notes
+
+## Milestone 3
+
+| Tasks                            | Description                                                  | Member Assigned to task   | Date                                 |
+| -------------------------------- | ------------------------------------------------------------ | ------------------------- | ------------------------------------ |
+| Refactoring code                 | Refactoring and debugging code from Milestone 2 in order to support further features. | Jeremy<br />Shuang Shuang | 26/6/23 - 2/7/23 <br />(Week 8)      |
+| Enhanced file sharing            | Allows multiple (>2) accounts to share and edit the same document.<br />Allows for concurrent editing of the same document. | Jeremy<br />Shuang Shuang | 26/6/23 - 9/7/23 <br />(Week 8/9)    |
+| Further collaborative features   | Comment system.                                              | Jeremy<br />Shuang Shuang | 26/6/23 - 9/7/23 <br />(Week 8/9)    |
+| Enhanced MarkUp language support | Side by side live view of source code and output.<br />Export to PDF. | Jeremy<br />Shuang Shuang | 2/6/23 - 9/7/23 <br />(Week 9)       |
+| Further types of notes           | Cheat sheet                                                  | Jeremy<br />Shuang Shuang | 10/6/23 - 17/7/23 <br />(Week 10/11) |
+| Preparation for Milestone 3      | Refactoring code and integration of features. Testing and debugging | Jeremy<br />Shuang Shuang | 18/6/23 - 24/7/23 <br />(Week 12)    |
+
+### Evaluation at Milestone 3: 24/7/23
+
+- Minimum viable product: MVP
+  - Collaboration:
+    - Concurrent editing
+    - Multiple users
+    - Comment system and live chat
+  - Editor:
+    - Side-by-side live view of MarkUp source code and output.
+    - Export to PDF. 
+
+## Splashdown
+
+| Tasks                          | Description                                                  | Member Assigned to task   | Date                                 |
+| ------------------------------ | ------------------------------------------------------------ | ------------------------- | ------------------------------------ |
+| Refactoring code               | Refactoring and debugging code from Milestone 3 in order to support further features. | Jeremy<br />Shuang Shuang | 24/7/23 - 30/7/23 <br />(Week 13)    |
+| Further collaborative features | Live chat.                                                   | Jeremy<br />Shuang Shuang | 31/7/23 - 6/8/23<br /> (Week 14)     |
+| Further types of notes         | Flashcards, mind-maps, diagrams                              | Jeremy<br />Shuang Shuang | 31/7/23 - 13/8/23<br /> (Week 14/15) |
+| Optimization and refinement    | Exploration of different modules and packages that can help the webpage run better and enhance user experience. | Jeremy<br />Shuang Shuang | 7/8/23 - 21/8/23 <br />(Week 15/16)  |
+| Preparation for Splashdown     | Refactoring code and integration of features. Testing and debugging | Jeremy<br />Shuang Shuang | 14/8/23 - 23/8/23 <br />(Week 16)    |
+
+### Evaluation at Splashdown:
+
+- Refined minimum viable product
 
