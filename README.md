@@ -20,7 +20,7 @@ and efficient way.
 
 ## Motivation
 <div style = "text-align: justify">
-    As computer science students, the modules that we have taken so far have required us to create our own notes, as well as cheatsheets for the exams. A commonly used tool for collaborative notemaking amongst students is Google Docs. However, we realised that it was almost impossible to create a cheatsheet that was space-efficient, due to the strict formatting rules permitted on Google Docs. It was also difficult to format the notes in the ways we desire. 
+As computer science students, the modules that we have taken so far have required us to create our own notes, as well as cheatsheets for the exams. A commonly used tool for collaborative notemaking amongst students is Google Docs. However, we realised that it was almost impossible to create a cheatsheet that was space-efficient, due to the strict formatting rules permitted on Google Docs. It was also difficult to format the notes in the ways we desire. 
 </div>
 
 <div style = "text-align: justify">
