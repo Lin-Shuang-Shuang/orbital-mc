@@ -38,7 +38,7 @@ Hence, we wondered if it was possible to have a collaborative website that has a
 1. As a student, I can create a cheat sheet for my exam using the markdown language note creation feature on NoTiFy so that I have greater control over the typesetting and formatting of my document than if I used Google Docs or Microsoft Word that only provides a rich text editor.
 2. As a student, I can collaborate with friends to create notes or cheatsheet, so that I can spare more time to work on other assignments and projects due.
 3. As a student, I can collaborate with friends to make notes, and read their understanding of the topic and compare it with mine so that I can identify which parts I need to work on and learn from them. As a student, if I have doubts about my friends’ notes, I can point them out by commenting on that specific section, so that they can learn and correct their mistakes.
-3. As a student who uses many different note formats to study for various subjects (e.g. flashcards for medical science, cheat sheets for math and slides for history) I want all my notes all in one platform so that I can access them easily without having many applications and websites open just to find my notes.
+4. As a student who uses many different note formats to study for various subjects (e.g. flashcards for medical science, cheat sheets for math and slides for history) I want all my notes all in one platform so that I can access them easily without having many applications and websites open just to find my notes.
 </p>
 
 ## Features
