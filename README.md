@@ -49,10 +49,32 @@ We envision NoTiFy to be an important collaborative note taking tool where users
 </p>
 
 ## Features
-* ### Markup language support
-* ### Collaboration friendly
-* ### Supports multiple note-taking formats
-* ### frictionless
+- Webpage
+  - Hosting
+    - Proposed: MongoDB database and collections to be hosted on MongoDB Atlas, 
+    - Current progress: MongoDB database and website are hosted locally. 
+  - Account management
+    - Proposed: Users will be able to register accounts with email authentication.
+    - Current progress: Basic registration and login features implemented. Authentication with JsonWebToken implemented.
+  - File management
+    - Proposed: Users will be able to upload, share with other users, edit and download their files on the platform. 
+    - Current progress: Working on rudimentary file upload and download with the Multer and GridFS packages.
+- Text editor
+  - Rich text editor:
+    - Proposed: An in-house rich text editor whereby users are able to select if they want to create a regular document or a document that supports MarkUp source code.
+    - Current progress: Implemented a rich-text-editor using the Quill package.
+  - MarkUp language support:
+    - Proposed: Users will be able to use our text editors to type in MarkUp source code (Markdown and LaTeX support planned) and export the file as a PDF. There will be a real time side-by-side view of MarkUp source code and output PDF implemented as well. 
+    - Current progress: Identified React packages such as KaTeX and react-markdown that will help us implement this feature.
+  - Additional types of notes:
+    - Proposed: Users will be able to select which type of document they would like to create when they attempt to create a new set of notes. Planned types of notes: A4 cheat sheet, post-it notes, flashcards, mind-maps, diagrams.
+- Collaborative Features
+  - File sharing: 
+    - Proposed: Users will be able to share files with each other. Once a user is granted permission to access a file, he/she will be able to edit and download it.
+  - Concurrent editing:
+    - Proposed: Multiple users will be able to edit the same file concurrently. 
+  - Communication:
+    - Proposed: A comment and reply system will be implemented, along with a live chat function.
 
 ## Timeline
 ## Milestone 1
