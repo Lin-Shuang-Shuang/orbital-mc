@@ -19,17 +19,17 @@ to easily locate and review their study materials in a convenient
 and efficient way.
 
 ## Motivation
-<div style = "text-align: justify">
+<p align="justify">
 As computer science students, the modules that we have taken so far have required us to create our own notes, as well as cheatsheets for the exams. A commonly used tool for collaborative notemaking amongst students is Google Docs. However, we realised that it was almost impossible to create a cheatsheet that was space-efficient, due to the strict formatting rules permitted on Google Docs. It was also difficult to format the notes in the ways we desire. 
-</div>
+</p>
 
-<div style = "text-align: justify">
+<p align="justify">
 One possible solution to these issues was to use other platforms such as Overleaf, which supports MarkUp languages, thus allowing for more control over how we can format our notes. Platforms like Miro and Canva are also helpful if we intend to create a mindmap or brainstorm for ideas with others. However, by using multiple applications to manage our notes, we increase the inconvenience we face while trying to revise for our exams. 
-</div>
+</p>
 
-<div style = "text-align: justify">
+<p align="justify">
 Hence, we wondered if it was possible to have a collaborative website that has a text editor which supports MarkUp languages as well as other note formats, such as an exam cheatsheet, flashcards, post-it notes and diagrams, thus allowing us to manage all our notes on a single platform.
-</div>
+</p>
 
 ## Vision
 
