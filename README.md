@@ -49,7 +49,6 @@ We envision NoTiFy to be an important collaborative note taking tool where users
 </p>
 
 ## Features
-<p align = "justify">
 - Webpage
   - Hosting
     - Proposed: MongoDB database and collections to be hosted on MongoDB Atlas, 
@@ -76,7 +75,6 @@ We envision NoTiFy to be an important collaborative note taking tool where users
     - Proposed: Multiple users will be able to edit the same file concurrently. 
   - Communication:
     - Proposed: A comment and reply system will be implemented, along with a live chat function.
-</p>
 ## Timeline
 ## Milestone 1
 
