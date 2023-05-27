@@ -30,6 +30,7 @@ One possible solution to these issues was to use other platforms such as Overlea
 <div style = "text-align: justify">
 Hence, we wondered if it was possible to have a collaborative website that has a text editor which supports MarkUp languages as well as other note formats, such as an exam cheatsheet, flashcards, post-it notes and diagrams, thus allowing us to manage all our notes on a single platform.
 </div>
+
 ## Vision
 
 ## User stories
