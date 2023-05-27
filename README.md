@@ -136,3 +136,11 @@ csd
 
 - Refined minimum viable product
 
+### Technology stack:
+![Technology Stack](C:\Work\Orbital\Submissions\Milestone 1\Technology Stack.drawio (3).png)
+
+### Mockup and webpage flowchart:
+![Webpage flowchart](C:\Work\Orbital\Submissions\Milestone 1\User flowchart.drawio (1).png)
+
+### Technical proof:
+
