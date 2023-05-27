@@ -32,6 +32,9 @@ Hence, we wondered if it was possible to have a collaborative website that has a
 </p>
 
 ## Vision
+<p align ="justify">
+We envision NoTiFy to be an important collaborative note taking tool where users will be able to easily create and share their knowledge and content. This will be achieved through the users employing the available features on the website, such as MarkUp language support, allowing for a more convenient and flexible note-taking experience. Users can also save time by choosing from the wide range of templates that we provide for various note types.
+</p>
 
 ## User stories
 <p align="justify">
