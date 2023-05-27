@@ -162,10 +162,24 @@ We envision NoTiFy to be an important collaborative note taking tool where users
 
 - Refined minimum viable product
 
-### Technology stack:
+## Technology stack:
 ![Technology Stack](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/Technology%20Stack.drawio%20(3).png)
 
-### Mockup and webpage flowchart:
+## Mockup and webpage flowchart:
 ![Webpage Flowchart](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/User%20flowchart.drawio%20(1).png)
-### Technical proof:
 
+## Technical proof:
+### Homepage
+![Homepage](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/Homepage.png)
+
+### Create new account
+![Create new account](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/CreateNewAccount.png)
+
+### Login
+![Login](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/Login.png)
+
+### Text editor
+![Text editor](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/Text%20Editor.png)
+
+### Account saved to database
+![Database](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/User%20Saved%20to%20Database.png)
