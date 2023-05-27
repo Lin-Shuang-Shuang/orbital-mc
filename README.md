@@ -137,10 +137,9 @@ csd
 - Refined minimum viable product
 
 ### Technology stack:
-![[Technology Stack](./images/Technology Stack.drawio (3).png)](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/Technology%20Stack.drawio%20(3).png)
+![Technology Stack](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/Technology%20Stack.drawio%20(3).png)
 
 ### Mockup and webpage flowchart:
-[![Webpage flowchart](./images/User flowchart.drawio (1).png)](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/User%20flowchart.drawio%20(1).png)
-
+![Webpage Flowchart](ttps://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/User%20flowchart.drawio%20(1).png)
 ### Technical proof:
 
