@@ -166,6 +166,13 @@ We envision NoTiFy to be an important collaborative note taking tool where users
 ![Technology Stack](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/Technology%20Stack.drawio%20(3).png)
 
 ## Mockup and webpage flowchart:
+![Main Page 1](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/mainpage_1.png)
+![Main Page 2](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/mainpage_2.png)
+![Main Page 3](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/mainpage_3.png)
+![Main Page 4](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/mainpage_4.png)
+![Dashboard](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/dashboard.png)
+![Rich Text Editor](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/richtexteditor.png)
+![Markdown](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/markdown.png)
 ![Webpage Flowchart](https://github.com/Lin-Shuang-Shuang/orbital-mc/blob/main/images/User%20flowchart.drawio%20(1).png)
 
 ## Technical proof:
