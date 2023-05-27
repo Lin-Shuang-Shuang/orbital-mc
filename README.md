@@ -35,6 +35,7 @@ Hence, we wondered if it was possible to have a collaborative website that has a
 
 ## User stories
 <p align="justify">
+  
 1. As a student, I can create a cheat sheet for my exam using the markdown language note creation feature on NoTiFy so that I have greater control over the typesetting and formatting of my document than if I used Google Docs or Microsoft Word that only provides a rich text editor.
   
 2. As a student, I can collaborate with friends to create notes or cheatsheet, so that I can spare more time to work on other assignments and projects.
