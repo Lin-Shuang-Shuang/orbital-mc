@@ -4,29 +4,27 @@ import {useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 import localAxios from '../api/Axios';
 import {useAuthContext} from '../hooks/useAuthContext';
-import {  AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Drawer } from '@mui/material';
 import Quill from "quill"
 import "quill/dist/quill.snow.css"
+import './Style.css';
 
 
 const theme = createTheme({
-  status: {
-    danger: '#e53e3e',
-  },
   palette: {
     primary: {
-      main: "##ffffff",
-      //contrastText: "#fff" //button text white instead of black
+      main: "#000000",
     },
-    neutral: {
-      main: '#64748B',
-      contrastText: '#fff',
+    text: {
+      primary: "#FFFFFF",
     },
   },
 });
+
+
 
 const TOOLBAR_OPTIONS = [
   [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -72,9 +70,10 @@ export default function LoginHome() {
 
     return (
     <>
+
         <ThemeProvider theme={theme}>
 
-                <AppBar position="static" color="neutral">
+                <AppBar position="static" >
                     <Toolbar>
 
                         <TextField  default ="Welcome" variant="outlined" helperText="Please enter title"
@@ -89,12 +88,13 @@ export default function LoginHome() {
 
                                         />
                                         <div style={{flexGrow:1}}></div>
-                        <Button flex variant="contained" color="neutral" onClick = {handleLogout}>
+                        <Button flex variant="contained" onClick = {handleLogout}>
                                                Logout
                                             </Button>
 
                     </Toolbar>
                 </AppBar>
+
 
 
                 </ThemeProvider>

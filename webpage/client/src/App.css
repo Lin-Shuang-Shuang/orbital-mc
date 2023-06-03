@@ -1,3 +1,53 @@
+body {
+  background-color: black;
+  margin: 0;
+}
+.carousel-mainpage_1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.carousel-mainpage_2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.carousel-mainpage_3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.carousel-mainpage_4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.carousel-firstpage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.carousel-secpage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.carousel-thirdpage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.carousel-forthpage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }

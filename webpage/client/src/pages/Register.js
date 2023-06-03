@@ -7,19 +7,25 @@ import { Link as MuiLink } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
-  status: {
-    danger: '#e53e3e',
-  },
   palette: {
     primary: {
-      main: "##ffffff",
-      //contrastText: "#fff" //button text white instead of black
+      main: "#000000",
     },
-    neutral: {
-      main: '#64748B',
-      contrastText: '#fff',
+    text: {
+      primary: "#FFFFFF",
     },
   },
+});
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    },
+    typography: {
+        allVariants: {
+          color: '#FFFFFF', // Set the color to white
+        },
+      },
 });
 
 export default function Register() {
@@ -45,14 +51,15 @@ export default function Register() {
   return (
     <>
     <ThemeProvider theme={theme}>
-        <AppBar position="relative" color="neutral">
+        <AppBar position="relative" >
             <Toolbar>
-                <Button variant="text" color="primary" component={Link} to="/" size="large">
+                <Button variant="contained" color="primary" component={Link} to="/" size="large">
                                     NoTiFy
                                 </Button>
             </Toolbar>
         </AppBar>
         </ThemeProvider>
+        <ThemeProvider theme={darkTheme}>
         <Container maxWidth="sm">
             <Stack component="login" marginTop={4} gap={2}>
                 <Typography variant="h4" component="h2" align="center" paragraph="true">
@@ -107,21 +114,8 @@ export default function Register() {
                 </Button>
             </Box>
         </Container>
-  {/*<form className="Register" onSubmit = {handleRegister}>
-      <input type = "username" placeholder = "Username..." 
-        onChange={(event) => {setuserName(event.target.value)}}
-        value = {username}
-      />
-      <input type = "email" placeholder = "Email..."
-        onChange={(event) => {setEmail(event.target.value)}}
-        value = {email} 
-      />
-      <input type = "password" placeholder = "Password..."
-        onChange={(event) => {setPassword(event.target.value)}} 
-        value = {password}
-      />
-      <button> Register </button> 
-  </form>*/}
+        </ThemeProvider>
+
         </>
 );
 }

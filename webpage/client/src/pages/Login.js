@@ -8,21 +8,29 @@ import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, Text
 import { Link as MuiLink } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
 const theme = createTheme({
-  status: {
-    danger: '#e53e3e',
-  },
   palette: {
     primary: {
-      main: "##ffffff",
-      //contrastText: "#fff" //button text white instead of black
+      main: "#000000",
     },
-    neutral: {
-      main: '#64748B',
-      contrastText: '#fff',
+    text: {
+      primary: "#FFFFFF",
     },
   },
 });
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    },
+    typography: {
+        allVariants: {
+          color: '#FFFFFF', // Set the color to white
+        },
+      },
+});
+
 
 
 export default function Login() {
@@ -50,14 +58,15 @@ export default function Login() {
     return (
         <>
         <ThemeProvider theme={theme}>
-        <AppBar position="relative" color="neutral">
+        <AppBar position="relative" >
             <Toolbar>
-                <Button variant="text" color="primary" component={Link} to="/" size="large">
+                <Button variant="contained"  component={Link} to="/" size="large">
                     NoTiFy
                 </Button>
             </Toolbar>
         </AppBar>
         </ThemeProvider>
+        <ThemeProvider theme={darkTheme}>
             <Container maxWidth="sm">
                 <Stack component="login" marginTop={2} gap={2}>
                     <Typography variant="h4" component="h2" align="center" paragraph="true">
@@ -105,6 +114,7 @@ export default function Login() {
                 </Button>
             </Box>
             </Container>
+            </ThemeProvider>
 </>
     );
 }
