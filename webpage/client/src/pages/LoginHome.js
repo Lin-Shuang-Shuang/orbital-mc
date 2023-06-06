@@ -55,6 +55,9 @@ export default function LoginHome() {
         }
     }
 
+
+
+
     const wrapperRef = useCallback((wrapper) => {
         if (wrapper == null) return
 
@@ -88,16 +91,17 @@ export default function LoginHome() {
 
                                         />
                                         <div style={{flexGrow:1}}></div>
-                        <Button flex variant="contained" onClick = {handleLogout}>
-                                               Logout
+                        <Button variant="contained" component={Link} to="/MarkDown" >
+                                                Markdown
                                             </Button>
+                        <Button flex variant="contained" onClick = {handleLogout}>
+                            Logout
+                        </Button>
+
 
                     </Toolbar>
                 </AppBar>
-
-
-
-                </ThemeProvider>
+        </ThemeProvider>
         <div className="container" ref={wrapperRef}></div>
 
 
