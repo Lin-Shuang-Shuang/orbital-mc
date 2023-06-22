@@ -5,6 +5,8 @@ const cors = require("cors");
 //Import routers
 const authRouter = require('./routes/AuthenticationRouter');
 
+
+
 //Create and configure API
 const app = express();
 app.use(express.json());

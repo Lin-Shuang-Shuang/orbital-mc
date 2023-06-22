@@ -1,6 +1,6 @@
 import React from "react";
 import {useState, useEffect, useCallback} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { Link } from "react-router-dom";
 import localAxios from '../api/Axios';
 import {useAuthContext} from '../hooks/useAuthContext';
@@ -11,6 +11,7 @@ import { Drawer } from '@mui/material';
 import Quill from "quill"
 import "quill/dist/quill.snow.css"
 import './Style.css';
+import {io} from 'socket.io-client';
 
 
 const theme = createTheme({
@@ -55,8 +56,78 @@ export default function LoginHome() {
         }
     }
 
+//my changes start here
+
+    const SAVE_INTERVAL_MS = 2000
+    const { id: documentId } = useParams()
+    const [socket, setSocket] = useState()
+    const [quill, setQuill] = useState()
+
+//connect to socket.io
+    useEffect(() => {
+        const s = io("http://localhost:3001")
+        setSocket(s)
+
+        return () => {
+          s.disconnect()
+        }
+      }, [])
+
+//allows us to save and load an edited document
+    useEffect(() => {
+        if (socket == null || quill == null) return
+
+        socket.once("load-document", document => {
+          quill.setContents(document)
+          quill.enable()
+        })
+
+        socket.emit("get-document", documentId)
+      }, [socket, quill, documentId])
 
 
+//saves document every couple millisec
+    useEffect(() => {
+        if (socket == null || quill == null) return
+
+        const interval = setInterval(() => {
+          socket.emit("save-document", quill.getContents())
+        }, SAVE_INTERVAL_MS)
+
+        return () => {
+          clearInterval(interval)
+        }
+      }, [socket, quill])
+
+//upon receiving changes, server will update content on the doc accordingly
+//(if we run 2 versions of the website at once, changes made to 1 version will be reflected on the other)
+    useEffect(() => {
+        if (socket == null || quill == null) return
+
+        const handler = delta => {
+          quill.updateContents(delta)
+        }
+        socket.on("receive-changes", handler)
+
+        return () => {
+          socket.off("receive-changes", handler)
+        }
+      }, [socket, quill])
+
+//tracks changes made on the doc by the user (sends them to server)
+    useEffect(() => {
+        if (socket == null || quill == null) return
+
+        const handler = (delta, oldDelta, source) => {
+          if (source !== "user") return
+          socket.emit("send-changes", delta)
+        }
+        quill.on("text-change", handler)
+
+        return () => {
+          quill.off("text-change", handler)
+        }
+    }, [socket, quill])
 
     const wrapperRef = useCallback((wrapper) => {
         if (wrapper == null) return
@@ -64,12 +135,12 @@ export default function LoginHome() {
         wrapper.innerHTML = '';
         const editor = document.createElement('div');
         wrapper.append(editor);
-        new Quill(editor, { theme: "snow", modules: { toolbar: TOOLBAR_OPTIONS }})
+        const q = new Quill(editor, { theme: "snow", modules: { toolbar: TOOLBAR_OPTIONS }})
+        q.disable()
+        q.setText("Loading...")
+        setQuill(q)
+          }, [])
 
-        return ()=> {
-            wrapperRef.innerHTML = "";
-        }
-    }, [])
 
     return (
     <>
