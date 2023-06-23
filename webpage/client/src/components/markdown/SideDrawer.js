@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import {useNavigate} from "react-router-dom";
-import {useAuthContext} from '../../hooks/useAuthContext';
 import { TextField, Button, Link } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
@@ -103,12 +102,10 @@ export default function SideDrawer() {
   const [Title, setTitle] = useState("Welcome");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { dispatch } = useAuthContext();
   const handleLogout = async (e) => {
               e.preventDefault();
               try {
-                  localStorage.removeItem('user')
-                  dispatch({ type: 'logout' })
+                  localStorage.removeItem("jsontoken");
                   navigate("/");
               } catch(error) {
                   setError(error.response.data.message);

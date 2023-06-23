@@ -13,5 +13,4 @@ app.use(express.json());
 app.use(cors());
 //Routers
 app.use('/api/authRouter', authRouter);
-
 module.exports = app;

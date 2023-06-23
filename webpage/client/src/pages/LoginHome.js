@@ -3,7 +3,6 @@ import {useState, useEffect, useCallback} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import { Link } from "react-router-dom";
 import localAxios from '../api/Axios';
-import {useAuthContext} from '../hooks/useAuthContext';
 import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -40,15 +39,13 @@ const TOOLBAR_OPTIONS = [
 ]
 
 export default function LoginHome() {
-    const { dispatch } = useAuthContext();
     const [Title, setTitle] = useState("Welcome");
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
-            localStorage.removeItem('user') 
-            dispatch({ type: 'logout' })
+            localStorage.removeItem("jsontoken");
             navigate("/");
         } catch(error) {
             setError(error.response.data.message);
@@ -59,14 +56,15 @@ export default function LoginHome() {
 //my changes start here
 
     const SAVE_INTERVAL_MS = 2000
+    const token = localStorage.getItem("jsontoken");
     const { id: documentId } = useParams()
     const [socket, setSocket] = useState()
     const [quill, setQuill] = useState()
 
 //connect to socket.io
     useEffect(() => {
-        const s = io("http://localhost:3001")
-        setSocket(s)
+        const s = io("http://localhost:3003", {query: {token}});
+        setSocket(s);
 
         return () => {
           s.disconnect()
@@ -81,7 +79,6 @@ export default function LoginHome() {
           quill.setContents(document)
           quill.enable()
         })
-
         socket.emit("get-document", documentId)
       }, [socket, quill, documentId])
 

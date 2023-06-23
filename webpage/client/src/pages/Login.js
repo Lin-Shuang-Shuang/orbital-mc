@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import localAxios from '../api/Axios';
-import {useAuthContext} from '../hooks/useAuthContext';
 import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
 
 const theme = createTheme({
   palette: {
@@ -37,17 +35,14 @@ export default function Login() {
     const [input, setInput] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const { dispatch } = useAuthContext();
     const navigate = useNavigate();
     const loginURL = "/api/authRouter/login";
     const handleLogin = async (e) => {
         e.preventDefault();
         try { 
-            const {data: response} = await localAxios.post(loginURL, {input, password});
-            const jsontoken = response.data;
-            localStorage.setItem("token", jsontoken);
-            dispatch({type: 'login', payload: jsontoken});
-            console.log(response.data);
+            const response = await localAxios.post(loginURL, {input, password});
+            const jsontoken = response.data.newToken;
+            localStorage.setItem("jsontoken", jsontoken);
             navigate("/LoginHome");
         } catch(error) {
             setError(error.response.data.message);

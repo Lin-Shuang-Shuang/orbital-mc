@@ -25,20 +25,18 @@ const login = async (request, response) => {
     const {input, password} = request.body;
     try {
         const newUser = await userModel.login(input, password);
-        const newToken = generateToken(newUser._id);
+        const newToken = generateToken(newUser.username);
         response.json({newToken});
     } catch (error) {
         response.status(500).send({message: error.message});
     }
 }
 
-//Logout
-
-
 
 //Generate JSON web token
 const generateToken = (id) => {
-    return JsonWebToken.sign({id}, process.env.SECRET, {expiresIn: '1d'});
+    const token = JsonWebToken.sign({id}, process.env.SECRET, {expiresIn: '1d'});
+    return token;
 }
 
 module.exports = {register, login};

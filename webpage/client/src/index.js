@@ -8,7 +8,6 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import LoginHome from "./pages/LoginHome";
 import MarkDown from "./pages/MarkDown";
-import AuthProvider from "./context/AuthContext";
 import { v4 as uuidV4} from 'uuid';
 
 export default function App() {
@@ -36,9 +35,7 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <App />
   </React.StrictMode>
 );
 
