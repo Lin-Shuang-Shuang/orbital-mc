@@ -19,11 +19,11 @@ const ioServer = require("socket.io")(3003, {
 
 ioServer.use(verifyUser);
 ioServer.on("connection", (socket) => {
-  socket.on("get-document", async documentId => {
-    const document = await findOrCreateDocument(documentId, socket.user)
+  socket.on("get-document", async ({ documentId, Title }) => {
+    const document = await findOrCreateDocument(documentId, socket.user, Title);
     socket.join(documentId)
     socket.emit("load-document", document.data)
-
+    socket.emit("load-title", document.title);
     socket.on("send-changes", delta => {
       socket.broadcast.to(documentId).emit("receive-changes", delta)
     })
@@ -31,17 +31,20 @@ ioServer.on("connection", (socket) => {
     socket.on("save-document", async data => {
       await Document.findByIdAndUpdate(documentId, { data })
     })
+  })
 
-    socket.on("get-all", async () => {
-      if (socket.user) {
-        const user = socket.user;
-        const documents = await findAll(user);
-        socket.emit("documents", documents);
-      } else {
-        socket.emit("Error", "Unauthorized");
-      } 
-    })
-    console.log("success");
+  socket.on("save-title", async ({documentId, Title}) => {
+    await Document.findByIdAndUpdate(documentId, { title: Title });
+  })
+  
+  socket.on("get-all", async () => {
+    if (socket.user) {
+      const user = socket.user;
+      const documents = await findAll(user);
+      socket.emit('found-documents', documents);
+    } else {
+      socket.emit("Error", "Unauthorized");
+    } 
   })
 })
 

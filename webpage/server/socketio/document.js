@@ -1,12 +1,12 @@
 const Document = require("../models/Document");
 
 //whenever we get a document id, we want to either find and load it (if it is alr in database), or create a new doc
-async function findOrCreateDocument(id, user){
+async function findOrCreateDocument(id, user, title){
     if (id == null) return
   
     let document = await Document.findById({_id: id, allowedUsers: user});
     if (!document) {
-        document = await Document.create({ _id: id, creator: user, allowedUsers: user, data: defaultValue });
+        document = await Document.create({ _id: id, title: title, creator: user, allowedUsers: user, data: defaultValue });
     }
     return document.toObject();
 }

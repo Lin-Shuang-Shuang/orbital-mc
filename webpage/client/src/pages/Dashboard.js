@@ -1,10 +1,10 @@
 import React from "react";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {  Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox } from "@mui/material";
+import {  Toolbar, Typography, IconButton, Stack, Container, TextField, FormControlLabel, Checkbox } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { v4 as uuidV4} from 'uuid';
 import { Link } from "react-router-dom";
-import {useState} from "react";
+import {useState, useEffect, useRef} from "react";
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -22,7 +22,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
+import Quill from 'quill';
+import {io} from 'socket.io-client';
+import { Card, Button } from 'antd';
+import UploadButton from '../components/UploadButton';
+import DownloadButton from '../components/DownloadButton';
+import ShareButton from '../components/ShareButton';
+import "./Dashboard.css";
 
 const theme = createTheme({
   palette: {
@@ -124,6 +130,33 @@ const [Title, setTitle] = useState("Welcome");
     setOpen(false);
   };
 
+  const SAVE_INTERVAL_MS = 2000;
+  const token = localStorage.getItem("jsontoken");
+  const [socket, setSocket] = useState();
+  const socketRef = useRef();
+  const [documents, setDocuments] = useState([]);
+  //connect to socket.io
+  useEffect(() => {
+    const s = io("http://localhost:3003", {query: {token}});
+    s.on('connect', () => {
+      s.emit('get-all');
+    });
+  
+    s.on('found-documents', (documents) => {
+      setDocuments(documents);
+    });
+  
+    socketRef.current = s;
+    return () => {
+      s.disconnect()
+    }
+  }, [])
+
+  const getPreview = (data) => {
+    return data.length > 100 ? data.substring(0, 100) + "..." : data;
+  }
+ 
+
    return (
         <>
         <ThemeProvider theme={theme}>
@@ -211,14 +244,22 @@ const [Title, setTitle] = useState("Welcome");
               </Drawer>
               <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
                 <DrawerHeader />
-
                 </Box>
-
-
-
         </Box>
         </ThemeProvider>
-
+    <div className="dashboard">
+      <h1>Your Documents</h1>
+      <UploadButton />
+      <div>
+      {documents.map((doc) => (
+        <Card key={doc._id} title={doc.title} extra={<Link to={`/LoginHome/${doc._id}`}>Open</Link>}>
+          <p>{getPreview(doc.data.ops[0].insert)}</p>
+          <DownloadButton documentId={doc._id} title={doc.title} />
+          <ShareButton documentId={doc._id} /> 
+        </Card>
+      ))}
+      </div>
+    </div>
 
     </>
     );

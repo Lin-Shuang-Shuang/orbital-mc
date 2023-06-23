@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 //Import routers
 const authRouter = require('./routes/AuthenticationRouter');
-
+const fileRouter = require('./routes/FileRouter');
 
 
 //Create and configure API
@@ -13,4 +13,5 @@ app.use(express.json());
 app.use(cors());
 //Routers
 app.use('/api/authRouter', authRouter);
+app.use('/api/fileRouter', fileRouter);
 module.exports = app;

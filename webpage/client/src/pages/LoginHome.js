@@ -1,5 +1,5 @@
 import React from "react";
-import {useState, useEffect, useCallback} from "react";
+import {useState, useEffect, useCallback, useRef} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import { Link } from "react-router-dom";
 import localAxios from '../api/Axios';
@@ -64,8 +64,12 @@ export default function LoginHome() {
 //connect to socket.io
     useEffect(() => {
         const s = io("http://localhost:3003", {query: {token}});
+        s.emit("get-title", Title);
+        s.once("load-title", title => {
+          setTitle(title);
+        }) 
         setSocket(s);
-
+        
         return () => {
           s.disconnect()
         }
@@ -79,8 +83,9 @@ export default function LoginHome() {
           quill.setContents(document)
           quill.enable()
         })
-        socket.emit("get-document", documentId)
-      }, [socket, quill, documentId])
+        socket.emit("get-document", {documentId, Title})
+        
+      }, [socket, quill, documentId, Title])
 
 
 //saves document every couple millisec
@@ -95,6 +100,18 @@ export default function LoginHome() {
           clearInterval(interval)
         }
       }, [socket, quill])
+
+      useEffect(() => {
+        if (socket == null || quill == null) return
+
+        const interval = setInterval(() => {
+          socket.emit("save-title", {documentId, Title})
+        }, SAVE_INTERVAL_MS)
+
+        return () => {
+          clearInterval(interval)
+        }
+      }, [socket, quill, documentId, Title])
 
 //upon receiving changes, server will update content on the doc accordingly
 //(if we run 2 versions of the website at once, changes made to 1 version will be reflected on the other)
@@ -154,7 +171,9 @@ export default function LoginHome() {
                                             label="Title"
                                             type="Title"
                                             id="password"
-                                            onChange={(event) => setTitle(event.target.value)}
+                                            onChange={(event) => 
+                                              setTitle(event.target.value)
+                                            }
                                             value={Title}
 
                                         />
