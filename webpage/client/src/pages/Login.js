@@ -43,7 +43,7 @@ export default function Login() {
             const response = await localAxios.post(loginURL, {input, password});
             const jsontoken = response.data.newToken;
             localStorage.setItem("jsontoken", jsontoken);
-            navigate("/LoginHome");
+            navigate("/Dashboard");
         } catch(error) {
             setError(error.response.data.message);
             console.log(error.message);

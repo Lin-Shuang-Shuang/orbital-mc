@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import LoginHome from "./pages/LoginHome";
 import MarkDown from "./pages/MarkDown";
+import Dashboard from "./pages/Dashboard";
 import { v4 as uuidV4} from 'uuid';
 
 export default function App() {
@@ -20,10 +21,10 @@ export default function App() {
         <Route path="/" element={<Home />}/>
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />
-          //once we render the loginhome route, we will redirect them to a brand new random doc
-          <Route path="LoginHome" element={<a href={`/documents/${uuidV4()}`}>create document</a>} />
 
-            <Route path='/documents/:id' element={ <LoginHome />}/>
+          <Route path="Dashboard" element={<Dashboard />} />
+
+            <Route path="LoginHome/:id" element={ <LoginHome />}/>
 
           <Route path="MarkDown" element = {<MarkDown />} />
 
