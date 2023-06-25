@@ -1,5 +1,5 @@
 const Document = require("../models/Document");
-
+const MarkDown = require("../models/Markdown");
 //whenever we get a document id, we want to either find and load it (if it is alr in database), or create a new doc
 async function findOrCreateDocument(id, user, title){
     if (id == null) return
@@ -17,6 +17,26 @@ async function findAll(user) {
     return documents;
 }
 
+async function findAllMarkdown(user) {
+    const documents = await MarkDown.find({allowedUsers: user});
+    return documents;
+}
+
+async function findOrCreateMarkdown(id, user, title) {
+    if (id == null) return
+    let document = await MarkDown.findById({_id: id, allowedUsers: user});
+    if (!document) {
+        document = await MarkDown.create({
+            _id: id,
+            title: title,
+            creator: user,
+            allowedUsers: user,
+            data: "Input source code here."
+        })
+    }
+    return document.toObject();
+}
+
 const defaultValue = "";
 
-module.exports = {findOrCreateDocument, findAll};
+module.exports = {findOrCreateDocument, findAll, findAllMarkdown, findOrCreateMarkdown};

@@ -2,9 +2,7 @@ import React, {useState} from "react";
 import "../../pages/Style.css"
 import ReactMarkdown from 'react-markdown';
 
-const MarkdownReact = () => {
-
-    const [ markDown, setMarkDown ] = useState("Input source code here");
+const MarkdownReact = ({markDown, setMarkDown}) => {
     return (
         <>
             <div className = "center-div">

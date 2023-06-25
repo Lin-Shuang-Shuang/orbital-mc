@@ -156,7 +156,6 @@ export default function LoginHome() {
 //connect to socket.io
     useEffect(() => {
         const s = io("http://localhost:3003", {query: {token}});
-        s.emit("get-title", Title);
         s.once("load-title", title => {
           setTitle(title);
         }) 
@@ -165,7 +164,7 @@ export default function LoginHome() {
         return () => {
           s.disconnect()
         }
-      }, [])
+      }, [token])
 
 //allows us to save and load an edited document
     useEffect(() => {
@@ -177,7 +176,7 @@ export default function LoginHome() {
         })
         socket.emit("get-document", {documentId, Title})
         
-      }, [socket, quill, documentId, Title])
+      }, [socket, quill, documentId])
 
 
 //saves document every couple millisec

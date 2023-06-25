@@ -147,16 +147,22 @@ const [Title, setTitle] = useState("Welcome");
   const [socket, setSocket] = useState();
   const socketRef = useRef();
   const [documents, setDocuments] = useState([]);
+  const [markdown, setMarkdown] = useState([]);
   //connect to socket.io
   useEffect(() => {
     const s = io("http://localhost:3003", {query: {token}});
     s.on('connect', () => {
       s.emit('get-all');
+      s.emit('get-markdowns');
     });
   
     s.on('found-documents', (documents) => {
       setDocuments(documents);
     });
+
+    s.on('found-markdown', (markdowns) => {
+      setMarkdown(markdowns);
+    })
   
     socketRef.current = s;
     return () => {
@@ -268,6 +274,14 @@ const [Title, setTitle] = useState("Welcome");
           <ShareButton documentId={doc._id} /> 
         </Card>
       ))}
+      <h1>Your MarkDown Documents</h1>
+      </div>
+      {markdown.map((doc) => (
+        <Card key = {doc._id} title = {doc.title} extra = {<Link to = {`/MarkDown/${doc._id}`}>Open</Link>}></Card>
+      ) )
+      }
+      <div>
+      {markdown.map}
       </div>
     </div>
     </Box>

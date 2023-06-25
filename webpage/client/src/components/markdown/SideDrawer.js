@@ -98,9 +98,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 
-export default function SideDrawer() {
-
-  const [Title, setTitle] = useState("Welcome");
+export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleLogout = async (e) => {
@@ -223,7 +221,7 @@ export default function SideDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
         <DrawerHeader />
-        <MarkdownReact/>
+        <MarkdownReact markDown = {markDown} setMarkDown = {setMarkDown}/>
         </Box>
        </Box>
 

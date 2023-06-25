@@ -27,7 +27,7 @@ export default function App() {
 
             <Route path="LoginHome/:id" element={ <LoginHome />}/>
 
-          <Route path="MarkDown" element = {<MarkDown />} />
+          <Route path="MarkDown/:id" element = {<MarkDown />} />
           <Route path="PostIt" element = {<PostIt />} />
 
       </Routes>

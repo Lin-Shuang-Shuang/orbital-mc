@@ -6,10 +6,13 @@ const app = require("./server.js");
 const {
   verifyUser,
   findOrCreateDocument,
-  findAll
+  findAll,
+  findAllMarkdown,
+  findOrCreateMarkdown
 } = require("./controllers/SocketController.js");
 
 const Document = require("./models/Document")
+const MarkDown = require("./models/Markdown")
 const ioServer = require("socket.io")(3003, {
   cors: {
     origin:'http://localhost:3000',
@@ -45,6 +48,38 @@ ioServer.on("connection", (socket) => {
     } else {
       socket.emit("Error", "Unauthorized");
     } 
+  })
+
+  socket.on("get-markdown", async ({documentId, Title}) => {
+    const document = await findOrCreateMarkdown(documentId, socket.user, Title);
+    socket.join(documentId);
+    console.log("joined")
+    socket.emit("load-markdown", document);
+    socket.emit("title-sent", document);
+    
+  })
+
+  socket.on("save-markdowntitle", async ({documentId, Title}) => {
+    await MarkDown.findByIdAndUpdate(documentId, {title: Title})
+  })
+  
+
+  socket.on("save-markdown", async ({documentId, markDown}) => {
+    await MarkDown.findByIdAndUpdate(documentId, {data: markDown});
+  })
+
+  
+
+  
+
+  socket.on("get-markdowns", async () => {
+    if (socket.user) {
+      const user = socket.user;
+      const markdowns = await findAllMarkdown(user);
+      socket.emit('found-markdown', markdowns);
+    } else {
+      socket.emit("Error", "Unauthorized");
+    }
   })
 })
 

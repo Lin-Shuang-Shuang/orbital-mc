@@ -15,7 +15,7 @@ export default function AddMenuButton() {
     },
     {
       title: "Markdown",
-      link: "/MarkDown",
+      link: `/MarkDown/${uuidv4()}`,
     },
     {
       title: "Post it",
