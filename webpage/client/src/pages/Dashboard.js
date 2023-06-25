@@ -34,15 +34,9 @@ import AddMenuButton from "../components/AddMenuButton";
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: "#000000",
-    },
-    text: {
-      primary: "#FFFFFF",
-    },
+    mode: 'dark',
   },
 });
-
 
 const drawerWidth = 240;
 
@@ -148,12 +142,13 @@ const [Title, setTitle] = useState("Welcome");
   const socketRef = useRef();
   const [documents, setDocuments] = useState([]);
   const [markdown, setMarkdown] = useState([]);
+
   //connect to socket.io
   useEffect(() => {
     const s = io("http://localhost:3003", {query: {token}});
     s.on('connect', () => {
-      s.emit('get-all');
-      s.emit('get-markdowns');
+    s.emit('get-all');
+    s.emit('get-markdowns');
     });
   
     s.on('found-documents', (documents) => {
@@ -161,7 +156,7 @@ const [Title, setTitle] = useState("Welcome");
     });
 
     s.on('found-markdown', (markdowns) => {
-      setMarkdown(markdowns);
+       setMarkdown(markdowns);
     })
   
     socketRef.current = s;
@@ -180,7 +175,7 @@ const [Title, setTitle] = useState("Welcome");
 
         <Box sx={{ display: 'flex' }}>
               <CssBaseline />
-              <AppBar position="fixed" open={open}>
+              <AppBar position="fixed" open={open} className="app-bar" sx={{ backgroundColor: 'black' }}>
                 <Toolbar style={{ height: '8bor0px' }}>
                   <IconButton
                     color="inherit"
@@ -190,24 +185,27 @@ const [Title, setTitle] = useState("Welcome");
                     sx={{
                       marginRight: 5,
                       ...(open && { display: 'none' }),
+                      color: '#FFFFFF',
                     }}
                   >
                     <MenuIcon />
                   </IconButton>
-                  <Typography variant="h4">Sample</Typography>
+                  <Typography variant="h4">Your documents</Typography>
                   <AddMenuButton />
 
                 </Toolbar>
               </AppBar>
-              <Drawer variant="permanent" open={open}>
-                <DrawerHeader>
+              <Drawer variant="permanent" open={open} className="drawer" PaperProps={{sx: {backgroundColor: "black", color: "white",}}}>
+              <div className="drawer-header">
+                <DrawerHeader >
                 <Typography align="left">NoTiFy</Typography>
-                  <IconButton onClick={handleDrawerClose}>
+                  <IconButton onClick={handleDrawerClose} sx={{color: '#FFFFFF',}}>
                     {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                   </IconButton>
                 </DrawerHeader>
-                <Divider />
-                <List>
+                </div>
+                <Divider sx={{ bgcolor: 'white' }} />
+                <List >
                   {['Logout'].map((text, index) => (
                     <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                       <ListItemButton
@@ -216,7 +214,7 @@ const [Title, setTitle] = useState("Welcome");
                           minHeight: 48,
                           justifyContent: open ? 'initial' : 'center',
                           px: 2.5,
-                          color: '#000000',
+
                         }}
                       >
                         <ListItemIcon
@@ -224,6 +222,7 @@ const [Title, setTitle] = useState("Welcome");
                             minWidth: 0,
                             mr: open ? 3 : 'auto',
                             justifyContent: 'center',
+                            color: '#FFFFFF',
                           }}
                         >
                            <LogoutIcon />
@@ -233,9 +232,11 @@ const [Title, setTitle] = useState("Welcome");
                     </ListItem>
                   ))}
                 </List>
-                <Divider />
-                <Typography>Folders</Typography>
-                <List>
+                <Divider sx={{ bgcolor: 'white' }} />
+                <Typography sx={{ opacity: open ? 1 : 0, marginLeft: '10px', }}>
+                  Folders
+                </Typography>
+                <List >
                   {['first', 'second', 'third'].map((text, index) => (
                     <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                       <ListItemButton
@@ -250,6 +251,7 @@ const [Title, setTitle] = useState("Welcome");
                             minWidth: 0,
                             mr: open ? 3 : 'auto',
                             justifyContent: 'center',
+                            color: '#FFFFFF',
                           }}
                         >
                           {index % 2 === 0 ? <FolderIcon /> : <FolderIcon />}
@@ -260,32 +262,49 @@ const [Title, setTitle] = useState("Welcome");
                   ))}
                 </List>
               </Drawer>
+
               <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
                 <DrawerHeader />
 
+
     <div className="dashboard">
-      <h1>Your Documents</h1>
+    <div >
       <UploadButton />
-      <div>
+      </div>
+
+      <div className="card-container">
+
+
+      <h1 >Your Richtext Documents</h1>
       {documents.map((doc) => (
-        <Card key={doc._id} title={doc.title} extra={<Link to={`/LoginHome/${doc._id}`}>Open</Link>}>
+        <Card key={doc._id} title={doc.title} extra={<Link to={`/LoginHome/${doc._id}`} className="card">Open</Link>}>
           <p>{getPreview(doc.data.ops[0].insert)}</p>
-          <DownloadButton documentId={doc._id} title={doc.title} />
-          <ShareButton documentId={doc._id} /> 
+          <div className="document-actions">
+            <DownloadButton documentId={doc._id} title={doc.title} />
+            <ShareButton documentId={doc._id} />
+          </div>
         </Card>
       ))}
-      <h1>Your MarkDown Documents</h1>
       </div>
-      {markdown.map((doc) => (
-        <Card key = {doc._id} title = {doc.title} extra = {<Link to = {`/MarkDown/${doc._id}`}>Open</Link>}></Card>
-      ) )
-      }
-      <div>
-      {markdown.map}
+
+
+<div className="card-container">
+      <h1 >Your MarkDown Documents</h1>
+
+            {markdown.map((doc) => (
+              <Card key = {doc._id} title = {doc.title} extra = {<Link to = {`/MarkDown/${doc._id}`} className="card">Open</Link>}></Card>
+            ) )
+            }
+            <div>
+            {markdown.map}
       </div>
+      </div>
+
+
     </div>
     </Box>
             </Box>
+
 
 
     </>

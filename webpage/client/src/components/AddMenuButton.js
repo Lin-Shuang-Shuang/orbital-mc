@@ -51,6 +51,9 @@ export default function AddMenuButton() {
         onClick={handleClick}
         aria-label="Open to show more"
         title="Open to show more"
+        sx={{
+            color: '#FFFFFF', // Set the color to white
+          }}
       >
         <AddIcon />
       </IconButton>

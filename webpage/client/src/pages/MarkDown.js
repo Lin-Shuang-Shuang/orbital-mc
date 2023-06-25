@@ -23,10 +23,6 @@ const theme = createTheme({
 });
 
 
-
-
-
-
 export default function MarkDown() {
   const SAVE_INTERVAL_MS = 2000
   const token = localStorage.getItem("jsontoken");
@@ -41,7 +37,7 @@ export default function MarkDown() {
       setTitle(document.title);
     })
     setSocket(s);
-    
+
     return () => {
       s.disconnect()
     }
@@ -54,7 +50,7 @@ export default function MarkDown() {
     socket.once("load-markdown", document => {
       setMarkDown(document.data);
     })
-    
+
     socket.emit("get-markdown", {documentId, Title});
   }, [socket, documentId])
 
@@ -82,34 +78,31 @@ export default function MarkDown() {
   }, [socket, documentId, Title])
 
 //Sharing to be implemented later
-/** 
+/**
 useEffect(() => {
   if (socket == null) return
-
   socket.on("updated-title", document => {
     console.log(document.title);
     setTitle(document.title);
   })
-
   return () => {
     socket.off("updated-title", document => {
       setTitle(document.title);})
   }
 }, [socket])
-
 useEffect(() => {
   if (socket == null) return
-
   socket.on("updated-data", document => {
     setTitle(document.data);
   })
-
   return () => {
     socket.off("updated-data", document => {
       setTitle(document.data);})
   }
 }, [socket])
 */
+
+
 
     return (
         <>

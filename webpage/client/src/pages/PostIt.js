@@ -28,6 +28,8 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import StickyNote from '../components/StickyNote';
 import StickyNoteList from '../components/StickyNoteList';
 import SearchStickyNote from '../components/SearchStickyNote';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 const drawerWidth = 240;
 
@@ -173,7 +175,7 @@ export default function PostIt() {
 
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: 'black' }}>
         <Toolbar style={{ height: '8bor0px' }}>
           <IconButton
             color="inherit"
@@ -183,33 +185,36 @@ export default function PostIt() {
             sx={{
               marginRight: 5,
               ...(open && { display: 'none' }),
+              color: '#FFFFFF',
             }}
           >
             <MenuIcon />
           </IconButton>
-          <TextField  default ="Notes" variant="filled" helperText="Please enter title"
-                                                      margin="normal"
-                                                      required
-                                                      name="Title"
-                                                      label="Title"
-                                                      type="Title"
-                                                      id="Title"
-                                                      onChange={(event) => setTitle(event.target.value)}
-                                                      value={Title}
+          <div className="header" handleToggleDarkMode={setDarkMode}>
+                    <Typography variant="h4">Sticky Notes</Typography>
+                    <IconButton style={{ color: '#FFFFFF' }}
+                              onClick={() =>
+                                setDarkMode((previousDarkMode) => !previousDarkMode)
+                              }
+                              className='save'
+                            >
+                              {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+                            </IconButton>
 
-                                                  />
-                                                  <div style={{flexGrow:1}}></div>
+                  </div>
+
 
 
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+      <Drawer variant="permanent" open={open} PaperProps={{sx: {backgroundColor: "black", color: "white",}}}>
+        <DrawerHeader className="stickynote-drawer-header">
+        <Typography align="left">NoTiFy</Typography>
+          <IconButton onClick={handleDrawerClose} sx={{color: '#FFFFFF',}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        <Divider sx={{ bgcolor: 'white' }}/>
         <List>
           {['Dashboard', 'Logout'].map((text, index) => (
                           <ListItem key={text} disablePadding sx={{ display: 'block' }}>
@@ -221,7 +226,7 @@ export default function PostIt() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
-                                color: '#000000',
+
                               }}
                             >
                               <ListItemIcon
@@ -229,6 +234,7 @@ export default function PostIt() {
                                   minWidth: 0,
                                   mr: open ? 3 : 'auto',
                                   justifyContent: 'center',
+                                  color: '#FFFFFF',
                                 }}
                               >
                                 {index % 2 === 0 ? <DashboardIcon /> : <LogoutIcon />}
@@ -238,9 +244,9 @@ export default function PostIt() {
                           </ListItem>
                         ))}
                       </List>
-        <Divider />
+        <Divider sx={{ bgcolor: 'white' }}/>
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {[].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -255,6 +261,7 @@ export default function PostIt() {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    color: '#FFFFFF',
                   }}
                 >
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -269,18 +276,7 @@ export default function PostIt() {
         <DrawerHeader />
         <div className={`${darkMode && 'dark-mode'}`}>
         <div className="StickyNoteContainer">
-        <div className="header" handleToggleDarkMode={setDarkMode}>
-          <h1>Notes</h1>
-          <button
-                    onClick={() =>
-                      setDarkMode((previousDarkMode) => !previousDarkMode)
-                    }
-                    className='save'
-                  >
-                    Toggle Mode
-                  </button>
 
-        </div>
         <SearchStickyNote handleSearchNote={setSearchText} />
           <StickyNoteList
           notes={notes.filter((note) =>

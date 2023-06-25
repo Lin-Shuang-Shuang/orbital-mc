@@ -20,9 +20,9 @@ export default function UploadButton() {
         await localAxios.post("/api/fileRouter/createFile", {token, title, text});
     }
     return (
-        <div>
+        <div className="upload-container">
             <input type = "file" ref = {inputRef} />
-            <button onClick = {handleUpload}> Upload </button>
+            <button  onClick = {handleUpload}> Upload </button>
         </div>
     )
 }

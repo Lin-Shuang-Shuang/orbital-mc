@@ -157,13 +157,14 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
 
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+      <Drawer variant="permanent" open={open} PaperProps={{sx: {backgroundColor: "black", color: "white",}}}>
+        <DrawerHeader className="markdown-drawer-header">
+        <Typography align="left">NoTiFy</Typography>
+          <IconButton onClick={handleDrawerClose} sx={{color: '#FFFFFF',}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        <Divider sx={{ bgcolor: 'white' }}/>
         <List>
           {['Dashboard', 'Logout'].map((text, index) => (
                           <ListItem key={text} disablePadding sx={{ display: 'block' }}>
@@ -175,7 +176,7 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
-                                color: '#000000',
+
                               }}
                             >
                               <ListItemIcon
@@ -183,6 +184,7 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
                                   minWidth: 0,
                                   mr: open ? 3 : 'auto',
                                   justifyContent: 'center',
+                                  color: '#FFFFFF',
                                 }}
                               >
                                 {index % 2 === 0 ? <DashboardIcon /> : <LogoutIcon />}
@@ -192,9 +194,9 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
                           </ListItem>
                         ))}
                       </List>
-        <Divider />
+        <Divider sx={{ bgcolor: 'white' }}/>
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {[].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -209,6 +211,7 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    color: '#FFFFFF',
                   }}
                 >
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

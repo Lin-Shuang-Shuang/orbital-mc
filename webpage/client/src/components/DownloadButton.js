@@ -1,6 +1,7 @@
 import React from "react";
 import FileSaver from "file-saver";
 import localAxios from '../api/Axios';
+import { Button } from "antd";
 
 export default function DownloadButton({documentId, title}) {
     const handleDownload = async () => {
@@ -19,7 +20,7 @@ export default function DownloadButton({documentId, title}) {
         
     return (
         <div>
-            <button onClick = {handleDownload}> Download </button>
+            <Button type="primary" onClick = {handleDownload}> Download </Button>
         </div>
     )
 }
