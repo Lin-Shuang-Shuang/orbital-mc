@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import LoginHome from "./pages/LoginHome";
 import MarkDown from "./pages/MarkDown";
 import Dashboard from "./pages/Dashboard";
+import PostIt from "./pages/PostIt";
 import { v4 as uuidV4} from 'uuid';
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="LoginHome/:id" element={ <LoginHome />}/>
 
           <Route path="MarkDown" element = {<MarkDown />} />
+          <Route path="PostIt" element = {<PostIt />} />
 
       </Routes>
     </BrowserRouter>

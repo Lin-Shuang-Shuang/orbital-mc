@@ -21,11 +21,106 @@
     display: flex;
     justify-content: center;
     position: sticky;
-    top: 0;
+    top: 105px;
     z-index: 1;
     background-color: #F3F3F3;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
 }
+
+.StickyNoteContainer {
+    max-width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	min-height: 100vh;
+
+}
+.StickyNoteList {
+    display: grid;
+   	grid-gap: 1rem;
+   	grid-template-columns: repeat(
+   		auto-fill,
+   		minmax(250px, 1fr)
+   	);
+}
+.StickyNote {
+    background-color: #fef68a;
+  	border-radius: 10px;
+  	padding: 1rem;
+  	min-height: 170px;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+  	white-space: pre-wrap;
+}
+
+.StickyNote-footer {
+    display: flex;
+   	align-items: center;
+   	justify-content: space-between;
+}
+
+.StickyNote.new {
+	background-color: #67d7cc;
+}
+
+textarea {
+	border: none;
+	resize: none;
+	background-color: #67d7cc;
+}
+
+textarea:focus {
+	outline: none;
+}
+
+.save {
+	background-color: #e1e1e1;
+	border: none;
+	border-radius: 15px;
+	padding: 5px 10px 5px 10px;
+}
+
+.save:hover {
+	background-color: #ededed;
+	cursor: pointer;
+}
+
+.SearchStickyNote {
+    display: flex;
+  	align-items: center;
+  	background-color: rgb(233, 233, 233);
+  	border-radius: 10px;
+  	padding: 5px;
+  	margin-bottom: 1.5em;
+}
+
+
+.SearchStickyNote input {
+	border: none;
+	background-color: rgb(233, 233, 233);
+	width: 100%;
+}
+
+.SearchStickyNote input:focus {
+	outline: none;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.dark-mode {
+	background-color: black;
+}
+
+.dark-mode h1 {
+	color: white;
+}
+
 @page {
   margin: 1in;
 }

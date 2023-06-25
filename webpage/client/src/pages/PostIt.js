@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {useState} from "react";
+import {useState, useEffect } from "react";
+import { nanoid } from 'nanoid';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -22,10 +23,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import MarkdownReact from "./MarkdownReact";
 import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-
+import StickyNote from '../components/StickyNote';
+import StickyNoteList from '../components/StickyNoteList';
+import SearchStickyNote from '../components/SearchStickyNote';
 
 const drawerWidth = 240;
 
@@ -98,7 +100,49 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 
-export default function SideDrawer() {
+export default function PostIt() {
+
+  const [notes, setNotes] = useState([
+  		{
+  			id: nanoid(),
+  			text: 'This is my first note!',
+  			date: '15/04/2021',
+  		},
+  		{
+  			id: nanoid(),
+  			text: 'This is my second note!',
+  			date: '21/04/2021',
+  		},
+  		{
+  			id: nanoid(),
+  			text: 'This is my third note!',
+  			date: '28/04/2021',
+  		},
+
+  	]);
+
+  	const [searchText, setSearchText] = useState('');
+    const [darkMode, setDarkMode] = useState(false);
+
+
+  	const addNote = (text) => {
+    		const date = new Date();
+    		const newNote = {
+    			id: nanoid(),
+    			text: text,
+    			date: date.toLocaleDateString(),
+    		};
+    		const newNotes = [...notes, newNote];
+    		setNotes(newNotes);
+    };
+
+
+    const deleteNote = (id) => {
+    		const newNotes = notes.filter((note) => note.id !== id);
+    		setNotes(newNotes);
+    };
+
+
 
   const [Title, setTitle] = useState("Welcome");
   const [error, setError] = useState("");
@@ -143,13 +187,13 @@ export default function SideDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <TextField  default ="Welcome" variant="filled" helperText="Please enter title"
+          <TextField  default ="Notes" variant="filled" helperText="Please enter title"
                                                       margin="normal"
                                                       required
                                                       name="Title"
                                                       label="Title"
                                                       type="Title"
-                                                      id="password"
+                                                      id="Title"
                                                       onChange={(event) => setTitle(event.target.value)}
                                                       value={Title}
 
@@ -223,7 +267,31 @@ export default function SideDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
         <DrawerHeader />
-        <MarkdownReact/>
+        <div className={`${darkMode && 'dark-mode'}`}>
+        <div className="StickyNoteContainer">
+        <div className="header" handleToggleDarkMode={setDarkMode}>
+          <h1>Notes</h1>
+          <button
+                    onClick={() =>
+                      setDarkMode((previousDarkMode) => !previousDarkMode)
+                    }
+                    className='save'
+                  >
+                    Toggle Mode
+                  </button>
+
+        </div>
+        <SearchStickyNote handleSearchNote={setSearchText} />
+          <StickyNoteList
+          notes={notes.filter((note) =>
+          						note.text.toLowerCase().includes(searchText)
+          					)}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote} />
+
+        </div>
+        </div>
+
         </Box>
        </Box>
 
