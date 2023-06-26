@@ -107,18 +107,18 @@ export default function PostIt() {
   const [notes, setNotes] = useState([
   		{
   			id: nanoid(),
-  			text: 'This is my first note!',
-  			date: '15/04/2021',
+  			text: 'This is my first!',
+  			date: '15/04/2023',
   		},
   		{
   			id: nanoid(),
-  			text: 'This is my second note!',
-  			date: '21/04/2021',
+  			text: 'This is my second!',
+  			date: '21/05/2023',
   		},
   		{
   			id: nanoid(),
-  			text: 'This is my third note!',
-  			date: '28/04/2021',
+  			text: 'This is my third!',
+  			date: '28/06/2023',
   		},
 
   	]);
