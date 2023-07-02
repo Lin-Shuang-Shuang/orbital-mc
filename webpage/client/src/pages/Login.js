@@ -6,6 +6,7 @@ import localAxios from '../api/Axios';
 import { AppBar, Toolbar, Typography, IconButton, Button, Stack, Container, TextField, FormControlLabel, Checkbox, Box } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import logo from '../images/NoTiFy-logo.png'
 
 const theme = createTheme({
   palette: {
@@ -56,7 +57,7 @@ export default function Login() {
         <AppBar position="relative" >
             <Toolbar>
                 <Button variant="contained"  component={Link} to="/" size="large">
-                    NoTiFy
+                    <img src={logo} alt="Logo" style={{ height: '40px' }} />
                 </Button>
             </Toolbar>
         </AppBar>

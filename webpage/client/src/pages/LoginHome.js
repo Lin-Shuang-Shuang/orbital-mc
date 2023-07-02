@@ -27,6 +27,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import logo from '../images/NoTiFy-logo.png'
 
 const theme = createTheme({
   palette: {
@@ -279,15 +280,13 @@ export default function LoginHome() {
 
                                                       />
                                                       <div style={{flexGrow:1}}></div>
-                                      <Button variant="contained" component={Link} to="/MarkDown" >
-                                                              MarkDown
-                                                          </Button>
+
 
             </Toolbar>
           </AppBar>
           <Drawer variant="permanent" open={open} PaperProps={{sx: {backgroundColor: "black", color: "white",}}}>
             <DrawerHeader className="richtext-drawer-header">
-            <Typography align="left">NoTiFy</Typography>
+            <img src={logo} alt="Logo" style={{ height: '60px', margin: 'auto' }} />
               <IconButton onClick={handleDrawerClose} sx={{color: '#FFFFFF',}}>
                 {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
               </IconButton>

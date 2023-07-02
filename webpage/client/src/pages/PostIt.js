@@ -30,6 +30,8 @@ import StickyNoteList from '../components/StickyNoteList';
 import SearchStickyNote from '../components/SearchStickyNote';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import logo from '../images/NoTiFy-logo.png'
+
 
 const drawerWidth = 240;
 
@@ -209,7 +211,7 @@ export default function PostIt() {
       </AppBar>
       <Drawer variant="permanent" open={open} PaperProps={{sx: {backgroundColor: "black", color: "white",}}}>
         <DrawerHeader className="stickynote-drawer-header">
-        <Typography align="left">NoTiFy</Typography>
+        <img src={logo} alt="Logo" style={{ height: '40px', margin: 'auto' }} />
           <IconButton onClick={handleDrawerClose} sx={{color: '#FFFFFF',}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>

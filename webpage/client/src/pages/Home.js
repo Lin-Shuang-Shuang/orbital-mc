@@ -10,6 +10,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import {useNavigate} from "react-router-dom";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import logo from '../images/NoTiFy-logo.png'
 
 const theme = createTheme({
   palette: {
@@ -50,7 +51,7 @@ export default function Home() {
             <AppBar position="relative" >
                 <Toolbar>
                     <Typography variant="h6" component="h1" flexGrow={1}>
-                        NoTiFy
+                        <img src={logo} alt="Logo" style={{ height: '40px' }} />
                     </Typography>
                     <Button variant="contained" component={Link} to="Register" >
                         Register

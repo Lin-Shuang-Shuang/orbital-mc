@@ -2,6 +2,8 @@ import React from "react";
 import FileSaver from "file-saver";
 import localAxios from '../api/Axios';
 import { Button } from "antd";
+import DownloadIcon from '@mui/icons-material/Download';
+import IconButton from '@mui/material/IconButton';
 
 export default function DownloadButton({documentId, title}) {
     const handleDownload = async () => {
@@ -20,7 +22,7 @@ export default function DownloadButton({documentId, title}) {
         
     return (
         <div>
-            <Button type="primary" onClick = {handleDownload}> Download </Button>
+            <IconButton type="primary" onClick = {handleDownload}> <DownloadIcon /> </IconButton>
         </div>
     )
 }

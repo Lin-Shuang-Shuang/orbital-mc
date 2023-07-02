@@ -25,7 +25,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MarkdownReact from "./MarkdownReact";
 import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-
+import logo from '../../images/NoTiFy-logo.png'
 
 const drawerWidth = 240;
 
@@ -159,7 +159,7 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
       </AppBar>
       <Drawer variant="permanent" open={open} PaperProps={{sx: {backgroundColor: "black", color: "white",}}}>
         <DrawerHeader className="markdown-drawer-header">
-        <Typography align="left">NoTiFy</Typography>
+        <img src={logo} alt="Logo" style={{ height: '60px', margin: 'auto' }} />
           <IconButton onClick={handleDrawerClose} sx={{color: '#FFFFFF',}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>

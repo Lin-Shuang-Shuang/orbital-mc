@@ -28,9 +28,10 @@ import { Card, Button } from 'antd';
 import UploadButton from '../components/UploadButton';
 import DownloadButton from '../components/DownloadButton';
 import ShareButton from '../components/ShareButton';
+import DeleteButton from '../components/DeleteButton';
 import "./Dashboard.css";
 import AddMenuButton from "../components/AddMenuButton";
-
+import logo from '../images/NoTiFy-logo.png'
 
 const theme = createTheme({
   palette: {
@@ -198,7 +199,7 @@ const [Title, setTitle] = useState("Welcome");
               <Drawer variant="permanent" open={open} className="drawer" PaperProps={{sx: {backgroundColor: "black", color: "white",}}}>
               <div className="drawer-header">
                 <DrawerHeader >
-                <Typography align="left">NoTiFy</Typography>
+                <img src={logo} alt="Logo" style={{ height: '40px', margin: 'auto' }} />
                   <IconButton onClick={handleDrawerClose} sx={{color: '#FFFFFF',}}>
                     {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                   </IconButton>
@@ -279,9 +280,10 @@ const [Title, setTitle] = useState("Welcome");
       {documents.map((doc) => (
         <Card key={doc._id} title={doc.title} extra={<Link to={`/LoginHome/${doc._id}`} className="card">Open</Link>}>
           <p>{getPreview(doc.data.ops[0].insert)}</p>
-          <div className="document-actions">
+          <div className="document-actions" style={{ display: 'flex', justifyContent: 'space-between' }}>
             <DownloadButton documentId={doc._id} title={doc.title} />
             <ShareButton documentId={doc._id} />
+            <DeleteButton documentId={doc._id} />
           </div>
         </Card>
       ))}

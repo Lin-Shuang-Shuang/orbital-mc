@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { Button, Modal, Input, message } from "antd";
 import localAxios from '../api/Axios';
+import IosShareIcon from '@mui/icons-material/IosShare';
+import IconButton from '@mui/material/IconButton';
 
 export default function ShareButton({documentId}) {
     const [visible, setVisible] = useState(false);
@@ -19,9 +21,9 @@ export default function ShareButton({documentId}) {
 
     return (
     <>
-      <Button type="primary" onClick={() => setVisible(true)}>
-        Share
-      </Button>
+      <IconButton type="primary" onClick={() => setVisible(true)}>
+        <IosShareIcon />
+      </IconButton>
       <Modal
         title="Share Document"
         visible={visible}
