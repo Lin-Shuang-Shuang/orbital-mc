@@ -13,11 +13,11 @@ export default function UploadButton() {
         }
         const request = new FormData();
         request.append('file', file);
-        const response = await localAxios.post("/api/fileRouter/uploadword", request);
+        const response = await localAxios.post("/api/fileRouter/uploadword", request)
         const text = response.data.data;
         const title = response.data.title;
         const token = localStorage.getItem("jsontoken");
-        await localAxios.post("/api/fileRouter/createFile", {token, title, text});
+        await localAxios.post("/api/fileRouter/createFile", {token, title, text}).then(window.location.reload(),)
     }
     return (
         <div className="upload-container">

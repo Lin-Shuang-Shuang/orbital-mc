@@ -11,9 +11,10 @@ export default function ShareButton({documentId}) {
 
     const handleShare = async () => {
         try {
-            await localAxios.post("/api/fileRouter//shareFile", {documentId, userToShareWith: username});
-            setUsername("");
-            setVisible(false);
+            await localAxios.post("/api/fileRouter//shareFile", {documentId, userToShareWith: username}).then(
+            setUsername(""),
+            setVisible(false),
+            )
         } catch (error) {
             message.error("Failed to share document");
         }
