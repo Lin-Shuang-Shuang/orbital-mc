@@ -49,4 +49,15 @@ const shareFile = async (request, response) => {
         response.status(1000).send("Error occured while sharing");
     }
 }
-module.exports = {createFile, shareFile};
+
+const deleteFile = async (request, response) => {
+    try {
+        console.log(request.params.id);
+        const documentId = request.params.id;
+        await Document.deleteOne({_id: documentId});
+    } catch (error) {
+        console.log(error);
+        response.status(1100).send("Error occured while sharing");
+    }
+}
+module.exports = {createFile, shareFile, deleteFile};

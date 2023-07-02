@@ -10,9 +10,10 @@ export default function DeleteButton({ documentId }) {
 
   const handleDelete = async () => {
     try {
-      await localAxios.delete(`/api/fileRouter/deleteFile/${documentId}`);
+      await localAxios.post(`/api/fileRouter/deleteFile/${documentId}`);
       setVisible(false);
       message.success("Document deleted successfully");
+      
     } catch (error) {
       message.error("Failed to delete document");
     }
