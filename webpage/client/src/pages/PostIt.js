@@ -31,7 +31,7 @@ import SearchStickyNote from '../components/SearchStickyNote';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import logo from '../images/NoTiFy-logo.png'
-
+import Comments from '../components/Comment/Comments'
 
 const drawerWidth = 240;
 
@@ -289,6 +289,7 @@ export default function PostIt() {
 
         </div>
         </div>
+        <Comments currentUserId="1" />
 
         </Box>
        </Box>

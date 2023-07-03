@@ -28,6 +28,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import logo from '../images/NoTiFy-logo.png'
+import Comments from '../components/Comment/Comments'
 
 const theme = createTheme({
   palette: {
@@ -145,6 +146,7 @@ export default function LoginHome() {
     const { id: documentId } = useParams()
     const [socket, setSocket] = useState()
     const [quill, setQuill] = useState()
+    const [pageCount, setPageCount] = useState(1);
     const [open, setOpen] = React.useState(false);
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -246,6 +248,7 @@ export default function LoginHome() {
         q.setText("Loading...")
         setQuill(q)
           }, [])
+
 
 
 
@@ -357,6 +360,8 @@ export default function LoginHome() {
 
 
         <div className="container" ref={wrapperRef}></div>
+
+        <Comments currentUserId="1" />
 
                         </Box>
                         </Box>
