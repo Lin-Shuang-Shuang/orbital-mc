@@ -22,6 +22,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import FolderIcon from '@mui/icons-material/Folder';
 import LogoutIcon from '@mui/icons-material/Logout';
+import ChatIcon from '@mui/icons-material/Chat';
 import Quill from 'quill';
 import {io} from 'socket.io-client';
 import { Card, Button } from 'antd';
@@ -33,11 +34,7 @@ import "./Dashboard.css";
 import AddMenuButton from "../components/AddMenuButton";
 import logo from '../images/NoTiFy-logo.png'
 
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+
 
 const drawerWidth = 240;
 
@@ -112,7 +109,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function Dashboard() {
 
 
-const [Title, setTitle] = useState("Welcome");
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleLogout = async (e) => {
@@ -207,16 +204,18 @@ const [Title, setTitle] = useState("Welcome");
                 </div>
                 <Divider sx={{ bgcolor: 'white' }} />
                 <List >
-                  {['Logout'].map((text, index) => (
+                  {['Chat', 'Logout'].map((text, index) => (
                     <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                       <ListItemButton
-                        onClick = {handleLogout}
-                        sx={{
-                          minHeight: 48,
-                          justifyContent: open ? 'initial' : 'center',
-                          px: 2.5,
+                         onClick={index === 1 ? handleLogout : null} // Only add onClick for the logout button
+                         component={index === 0 ? Link : 'button'} // Use component={Link} for Chat button, 'button' for logout button
+                         to={index === 0 ? "/Chat" : null} // Set the 'to' prop for the dashboard button
+                         sx={{
+                           minHeight: 48,
+                           justifyContent: open ? 'initial' : 'center',
+                           px: 2.5,
 
-                        }}
+                         }}
                       >
                         <ListItemIcon
                           sx={{
@@ -226,7 +225,7 @@ const [Title, setTitle] = useState("Welcome");
                             color: '#FFFFFF',
                           }}
                         >
-                           <LogoutIcon />
+                           {index % 2 === 0 ? <ChatIcon /> : <LogoutIcon />}
                         </ListItemIcon>
                         <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
                       </ListItemButton>

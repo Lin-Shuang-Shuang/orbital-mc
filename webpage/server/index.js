@@ -81,6 +81,15 @@ ioServer.on("connection", (socket) => {
       socket.emit("Error", "Unauthorized");
     }
   })
+
+  //error is likely caused by this
+  socket.on('message', async (data) => {
+    socket.emit('messageResponse', data);
+  })
+
+  socket.on('disconnect', async () => {
+    console.log('🔥: A user disconnected');
+  })
 })
 
 // Connect to database for signing in

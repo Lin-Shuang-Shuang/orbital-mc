@@ -29,6 +29,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import logo from '../images/NoTiFy-logo.png'
 import Comments from '../components/Comment/Comments'
+import ChatPage from "../components/chat/ChatPage"
 
 const theme = createTheme({
   palette: {
@@ -361,7 +362,7 @@ export default function LoginHome() {
 
         <div className="container" ref={wrapperRef}></div>
 
-        <Comments currentUserId="1" />
+        <ChatPage socket={socket}/>
 
                         </Box>
                         </Box>

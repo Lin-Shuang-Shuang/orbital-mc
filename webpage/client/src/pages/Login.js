@@ -38,12 +38,23 @@ export default function Login() {
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const loginURL = "/api/authRouter/login";
+
+    function parseJwt(token) {
+        if (!token) {
+          return;
+        }
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace("-", "+").replace("_", "/");
+        return JSON.parse(window.atob(base64));
+      }
+
     const handleLogin = async (e) => {
         e.preventDefault();
         try { 
             const response = await localAxios.post(loginURL, {input, password});
             const jsontoken = response.data.newToken;
             localStorage.setItem("jsontoken", jsontoken);
+            localStorage.setItem("username", parseJwt(jsontoken).id)
             navigate("/Dashboard");
         } catch(error) {
             setError(error.response.data.message);

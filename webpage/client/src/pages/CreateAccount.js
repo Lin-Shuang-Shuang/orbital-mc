@@ -7,7 +7,9 @@ export default function CreateAccount() {
     const [password, setPassword] = useState("");
 
   const createUser = () => {
-    Axios.post("http://localhost:3002/createUser", {username, email, password}).then((response) => {});
+    Axios.post("http://localhost:3002/createUser", {username, email, password}).then((response) => {
+
+    });
   }
 
   return (
