@@ -27,9 +27,11 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import ChatIcon from '@mui/icons-material/Chat';
 import logo from '../images/NoTiFy-logo.png'
 import Comments from '../components/Comment/Comments'
 import ChatPage from "../components/chat/ChatPage"
+import "./Chat.css"
 
 const theme = createTheme({
   palette: {
@@ -126,6 +128,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function LoginHome() {
+    const [isChatOpen, setIsChatOpen] = useState(false);
     const [Title, setTitle] = useState("Welcome");
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -139,6 +142,9 @@ export default function LoginHome() {
             console.log(error.message);
         }
     }
+    const handleChatButtonClick = () => {
+        setIsChatOpen(initState => !initState);
+    };
 
 //my changes start here
 
@@ -273,17 +279,30 @@ export default function LoginHome() {
                 <MenuIcon />
               </IconButton>
               <TextField  default ="Welcome" variant="filled" helperText="Please enter title"
-                                                          margin="normal"
-                                                          required
-                                                          name="Title"
-                                                          label="Title"
-                                                          type="Title"
-                                                          id="password"
-                                                          onChange={(event) => setTitle(event.target.value)}
-                                                          value={Title}
+                 margin="normal"
+                 required
+                 name="Title"
+                 label="Title"
+                 type="Title"
+                 id="password"
+                 onChange={(event) => setTitle(event.target.value)}
+                 value={Title}
 
-                                                      />
-                                                      <div style={{flexGrow:1}}></div>
+              />
+
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleChatButtonClick}
+                edge="start"
+                sx={{
+                  marginRight: 5,
+                  ...(open && { display: 'none' }),
+                }}
+              >
+                <ChatIcon/>
+              </IconButton>
+
 
 
             </Toolbar>
@@ -352,7 +371,7 @@ export default function LoginHome() {
               ))}
             </List>
           </Drawer>
-          <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
+          <Box component="main" sx={{ flexGrow: 1, p: 3, display: 'flex' }} >
             <DrawerHeader />
 
 
@@ -360,9 +379,13 @@ export default function LoginHome() {
 
 
 
-        <div className="container" ref={wrapperRef}></div>
+        <div
+          className="container"
+          ref={wrapperRef}
+          style={{ width: isChatOpen ? '60%' : '100%' }}
+        ></div>
 
-        <ChatPage socket={socket}/>
+        {isChatOpen && <ChatPage socket={socket}/>}
 
                         </Box>
                         </Box>

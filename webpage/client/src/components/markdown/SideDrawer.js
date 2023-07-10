@@ -26,6 +26,9 @@ import MarkdownReact from "./MarkdownReact";
 import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import logo from '../../images/NoTiFy-logo.png'
+import ChatIcon from '@mui/icons-material/Chat';
+import ChatPage from "../chat/ChatPage"
+
 
 const drawerWidth = 240;
 
@@ -99,6 +102,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
+
+  const [isChatOpen, setChatOpen] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleLogout = async (e) => {
@@ -121,6 +126,10 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleChatOpen = () => {
+    setChatOpen(initState => !initState)
+  }
 
   return (
   <>
@@ -153,7 +162,18 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
 
                                                   />
                                                   <div style={{flexGrow:1}}></div>
-
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleChatOpen}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
+          >
+            <ChatIcon />
+          </IconButton>
 
         </Toolbar>
       </AppBar>
@@ -224,7 +244,8 @@ export default function SideDrawer({markDown, setMarkDown, Title, setTitle}) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
         <DrawerHeader />
-        <MarkdownReact markDown = {markDown} setMarkDown = {setMarkDown}/>
+        <MarkdownReact markDown = {markDown} setMarkDown = {setMarkDown} style={{ width: isChatOpen ? '60%' : '100%' }}/>
+
         </Box>
        </Box>
 
