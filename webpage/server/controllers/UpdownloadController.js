@@ -3,6 +3,7 @@ const multer = require("multer");
 const mammoth = require("mammoth");
 const Document = require("../models/Document");
 const Markdown = require("../models/Markdown");
+const Notes = require("../models/StickyNotes");
 const path = require("path");
 const officegen = require("officegen");
 const MarkdownPDF = require("markdown-pdf");

@@ -8,7 +8,6 @@ const StickyNoteList = ({ notes, handleAddNote, handleDeleteNote }) => {
 		  <StickyNote
 		    id={note.id}
             text={note.text}
-            date={note.date}
             handleDeleteNote={handleDeleteNote}/>
 
 		  ))}

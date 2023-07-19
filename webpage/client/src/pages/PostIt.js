@@ -32,7 +32,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import logo from '../images/NoTiFy-logo.png'
 import Comments from '../components/Comment/Comments'
-
+import localAxios from '../api/Axios';
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -107,6 +107,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function PostIt() {
 
   const [notes, setNotes] = useState([
+    /*
   		{
   			id: nanoid(),
   			text: 'This is my first!',
@@ -122,31 +123,52 @@ export default function PostIt() {
   			text: 'This is my third!',
   			date: '28/06/2023',
   		},
-
+      */
   	]);
 
   	const [searchText, setSearchText] = useState('');
     const [darkMode, setDarkMode] = useState(false);
 
+    useEffect(() => {
+      fetchNotes();
+    }, []);
 
-  	const addNote = (text) => {
-    		const date = new Date();
+    //Fetch and display all notes that belong to a user
+    const fetchNotes = async () => {
+      const token = localStorage.getItem("jsontoken");
+      const response = await localAxios.get('/api/stickyNoteRouter/notes', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+      }});
+      setNotes(response.data.map(note => ({
+        id: note._id,
+        text: note.data,
+      })))
+    }
+
+    //Create a new note
+  	const addNote = async (text) => {
     		const newNote = {
     			id: nanoid(),
-    			text: text,
-    			date: date.toLocaleDateString(),
+    			text: text
     		};
     		const newNotes = [...notes, newNote];
     		setNotes(newNotes);
+        const id = newNote.id;
+        const token = localStorage.getItem("jsontoken");
+        const title = "Note" + id;
+        await localAxios.post('/api/stickyNoteRouter/createNote', {id, token, title, text});
     };
 
-
-    const deleteNote = (id) => {
-    		const newNotes = notes.filter((note) => note.id !== id);
-    		setNotes(newNotes);
+    //Delete a note
+    const deleteNote = async (id) => {
+    		await localAxios.post(`/api/stickyNoteRouter/deleteNote/${id}`).then(window.location.reload());
     };
 
-
+    //Share a note with someone (button to be implemented)
+    const shareNote = async (id, userToShareWith) => {
+      await localAxios.post('/api/stickyNoteRouter/shareNote');
+    }
 
   const [Title, setTitle] = useState("Welcome");
   const [error, setError] = useState("");
