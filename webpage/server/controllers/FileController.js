@@ -1,4 +1,5 @@
 const Document = require("../models/Document");
+const Markdown = require("../models/Markdown");
 const randomstring = require("randomstring");
 const jsonwebtoken = require("jsonwebtoken");
 require('dotenv').config();
@@ -52,12 +53,43 @@ const shareFile = async (request, response) => {
 
 const deleteFile = async (request, response) => {
     try {
-        console.log(request.params.id);
         const documentId = request.params.id;
         await Document.deleteOne({_id: documentId});
     } catch (error) {
         console.log(error);
-        response.status(1100).send("Error occured while sharing");
+        response.status(1100).send("Error occured while deleting");
     }
 }
-module.exports = {createFile, shareFile, deleteFile};
+
+const shareMarkdown = async (request, response) => {
+    try {
+        const {documentId, userToShareWith} = request.body;
+        const document = await Markdown.findById(documentId);
+        if (!document) {
+            return response.status(404).send("Document not found");
+        }
+        if (document.allowedUsers.includes(userToShareWith)) {
+            return response.status(400).send("Document already shared with user");
+        }
+        document.allowedUsers.push(userToShareWith);
+        await document.save();
+        response.send("Successfully shared");
+    } catch (error) {
+        console.log(error);
+        response.status(1001).send("Error occured while sharing");
+    }
+}
+
+const deleteMarkdown = async (request, response) => {
+    try {
+        const documentId = request.params.id;
+        await Markdown.deleteOne({_id: documentId});
+    } catch (error) {
+        console.log(error);
+        response.status(1100).send("Error occured while deleting");
+    }
+}
+
+
+
+module.exports = {createFile, shareFile, deleteFile, shareMarkdown, deleteMarkdown};

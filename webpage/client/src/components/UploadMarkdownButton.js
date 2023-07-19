@@ -2,22 +2,23 @@ import React from "react";
 import { useRef } from "react";
 import localAxios from '../api/Axios';
 import {useNavigate} from "react-router-dom";
-
-export default function UploadButton() {
+import { Button } from '@mui/material';
+export default function UploadMarkdownButton() {
     const inputRef = useRef();
-    const navigate = useNavigate();
     const handleUpload = async () => {
         const file = inputRef.current.files[0];
         if (!file) {
             return;
         }
+        const token = localStorage.getItem("jsontoken");
         const request = new FormData();
         request.append('file', file);
-        const response = await localAxios.post("/api/fileRouter/uploadword", request)
-        const text = response.data.data;
-        const title = response.data.title;
-        const token = localStorage.getItem("jsontoken");
-        await localAxios.post("/api/fileRouter/createFile", {token, title, text}).then(window.location.reload());
+        await localAxios.post("/api/fileRouter/uploadMarkdown", request, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              'Authorization' : `Bearer ${token}`
+            },
+          }).then(window.location.reload());
     }
     return (
         <div className="upload-container">

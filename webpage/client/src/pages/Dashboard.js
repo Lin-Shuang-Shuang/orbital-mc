@@ -32,6 +32,11 @@ import ShareButton from '../components/ShareButton';
 import DeleteButton from '../components/DeleteButton';
 import "./Dashboard.css";
 import AddMenuButton from "../components/AddMenuButton";
+import UploadMarkdownButton from "../components/UploadMarkdownButton";
+import ExportMarkdownButton from "../components/ExportMarkdownButton";
+import DownloadMarkdownButton from "../components/DownloadMarkdownButton";
+import ShareMarkdownButton from "../components/ShareMarkdownButton";
+import DeleteMarkdownButton from "../components/DeleteMarkdownButton";
 import logo from '../images/NoTiFy-logo.png'
 
 
@@ -270,7 +275,11 @@ export default function Dashboard() {
     <div className="dashboard">
     <div >
       <UploadButton />
-      </div>
+    </div>
+
+    <div >
+      <UploadMarkdownButton />
+    </div>
 
       <div className="card-container">
 
@@ -291,9 +300,15 @@ export default function Dashboard() {
 
 <div className="card-container">
       <h1 >Your MarkDown Documents</h1>
-
             {markdown.map((doc) => (
-              <Card key = {doc._id} title = {doc.title} extra = {<Link to = {`/MarkDown/${doc._id}`} className="card">Open</Link>}></Card>
+              <Card key = {doc._id} title = {doc.title} extra = {<Link to = {`/MarkDown/${doc._id}`} className="card">Open</Link>}>
+                <div className="document-actions" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <ExportMarkdownButton documentId = {doc._id} title={doc.title} />
+                  <DownloadMarkdownButton documentId = {doc._id} title={doc.title} />
+                  <ShareMarkdownButton documentId = {doc._id} />
+                  <DeleteMarkdownButton documentId = {doc._id} />
+          </div>
+              </Card>
             ) )
             }
             <div>
