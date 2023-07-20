@@ -1,7 +1,9 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import {IconButton} from "@mui/material";
+import IosShareIcon from '@mui/icons-material/IosShare';
+import ShareStickyNoteButton from "./ShareStickyNoteButton";
 
-const StickyNote = ({ id, text, date, handleDeleteNote }) => {
+const StickyNote = ({ id, text, date, handleDeleteNote, handleShareNote}) => {
 	return (
 		<div className='StickyNote'>
 			<span>{text}</span>
@@ -14,6 +16,7 @@ const StickyNote = ({ id, text, date, handleDeleteNote }) => {
                 size='1.3em'>
                   <DeleteIcon />
                 </IconButton>
+                <ShareStickyNoteButton documentId = {id} />
 
 			</div>
 		</div>

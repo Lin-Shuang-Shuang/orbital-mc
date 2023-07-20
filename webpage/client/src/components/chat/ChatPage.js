@@ -11,7 +11,7 @@ export default function ChatPage({socket}) {
 
   //error is likely caused by this
   useEffect(() => {
-    socket.on('messageResponse', (data) => setMessages(mess=>[...mess, data]));
+    socket.on('messageResponse', (data) => setMessages([...messages, data]));
   }, [socket, messages])
 
   return (

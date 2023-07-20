@@ -166,9 +166,7 @@ export default function PostIt() {
     };
 
     //Share a note with someone (button to be implemented)
-    const shareNote = async (id, userToShareWith) => {
-      await localAxios.post('/api/stickyNoteRouter/shareNote');
-    }
+
 
   const [Title, setTitle] = useState("Welcome");
   const [error, setError] = useState("");
@@ -307,7 +305,9 @@ export default function PostIt() {
           						note.text.toLowerCase().includes(searchText)
           					)}
           handleAddNote={addNote}
-          handleDeleteNote={deleteNote} />
+          handleDeleteNote={deleteNote}
+          />
+
 
         </div>
         </div>
