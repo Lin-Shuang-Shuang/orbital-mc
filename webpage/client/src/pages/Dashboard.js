@@ -37,6 +37,9 @@ import ExportMarkdownButton from "../components/ExportMarkdownButton";
 import DownloadMarkdownButton from "../components/DownloadMarkdownButton";
 import ShareMarkdownButton from "../components/ShareMarkdownButton";
 import DeleteMarkdownButton from "../components/DeleteMarkdownButton";
+import CompileLatexButton from "../components/CompileLatexButton";
+import ShareLatexButton from "../components/ShareLatexButton";
+import DeleteLatexButton from "../components/DeleteLatexButton";
 import logo from '../images/NoTiFy-logo.png'
 
 
@@ -145,13 +148,14 @@ export default function Dashboard() {
   const socketRef = useRef();
   const [documents, setDocuments] = useState([]);
   const [markdown, setMarkdown] = useState([]);
-
+  const [latex, setLatex] = useState([]);
   //connect to socket.io
   useEffect(() => {
     const s = io("http://localhost:3003", {query: {token}});
     s.on('connect', () => {
     s.emit('get-all');
     s.emit('get-markdowns');
+    s.emit('get-latexs');
     });
   
     s.on('found-documents', (documents) => {
@@ -160,6 +164,10 @@ export default function Dashboard() {
 
     s.on('found-markdown', (markdowns) => {
        setMarkdown(markdowns);
+    })
+
+    s.on('found-latexs', (latex) => {
+      setLatex(latex);
     })
   
     socketRef.current = s;
@@ -307,14 +315,31 @@ export default function Dashboard() {
                   <DownloadMarkdownButton documentId = {doc._id} title={doc.title} />
                   <ShareMarkdownButton documentId = {doc._id} />
                   <DeleteMarkdownButton documentId = {doc._id} />
-          </div>
+                </div>
               </Card>
             ) )
             }
             <div>
             {markdown.map}
-      </div>
-      </div>
+            </div>
+</div>
+<div className="card-container">
+      <h1 >Your LaTex Documents</h1>
+            {latex.map((doc) => (
+              <Card key = {doc._id} title = {doc.title} extra = {<Link to = {`/LaTex/${doc._id}`} className="card">Open</Link>}>
+                <div className="document-actions" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <ShareLatexButton documentId = {doc._id} />
+                  <CompileLatexButton documentId = {doc._id} title = {doc.title} />
+                  <DeleteLatexButton documentId = {doc._id} />
+                </div>
+              </Card>
+            ) )
+            }
+            <div>
+            {latex.map}
+            </div>
+</div>
+
 
 
     </div>

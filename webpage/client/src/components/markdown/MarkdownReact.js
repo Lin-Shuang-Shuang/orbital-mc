@@ -2,13 +2,15 @@ import React, {useState} from "react";
 import "../../pages/Style.css"
 import ReactMarkdown from 'react-markdown';
 import 'katex/dist/katex.min.css';
-import { BlockMath } from 'react-katex';
-
+import { BlockMath, InlineMath } from 'react-katex';
+import gfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 const MarkdownReact = ({markDown, setMarkDown}) => {
 
     const renderers = {
-
-      math: ({ value }) => <BlockMath>{value}</BlockMath>,
+      inlineMath: ({value}) => <InlineMath math={value} />,
+      math: ({value}) => <BlockMath math={value} />,
     };
 
     return (
@@ -21,8 +23,11 @@ const MarkdownReact = ({markDown, setMarkDown}) => {
                 </textarea>
                 <div className="rightside">
                   <ReactMarkdown
+                  remarkPlugins = {[gfm, remarkMath]}
+                  rehypePlugins={[rehypeKatex]}
                   renderers={renderers}
                   children={markDown}
+                  allowDangerousHtml
                   ></ReactMarkdown>
                 </div>
             </div>

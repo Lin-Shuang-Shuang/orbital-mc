@@ -20,6 +20,10 @@ export default function AddMenuButton() {
     {
       title: "Post it",
       link: "/PostIt",
+    },
+    {
+      title: "LaTeX document",
+      link: `/LaTex/${uuidv4()}`
     }
   ];
   const [anchorEl, setAnchorEl] = React.useState(null);

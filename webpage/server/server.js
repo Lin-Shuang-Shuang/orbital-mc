@@ -6,6 +6,7 @@ const cors = require("cors");
 const authRouter = require('./routes/AuthenticationRouter');
 const fileRouter = require('./routes/FileRouter');
 const stickyNoteRouter = require('./routes/StickyNoteRouter');
+const LaTexRouter = require('./routes/LaTexRouter');
 
 //Create and configure API
 const app = express();
@@ -15,4 +16,5 @@ app.use(cors());
 app.use('/api/authRouter', authRouter);
 app.use('/api/fileRouter', fileRouter);
 app.use('/api/stickyNoteRouter', stickyNoteRouter);
+app.use('/api/LaTexRouter', LaTexRouter);
 module.exports = app;

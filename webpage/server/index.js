@@ -8,11 +8,14 @@ const {
   findOrCreateDocument,
   findAll,
   findAllMarkdown,
-  findOrCreateMarkdown
+  findOrCreateMarkdown,
+  findAllLaTex,
+  findOrCreateLatex
 } = require("./controllers/SocketController.js");
 
 const Document = require("./models/Document")
 const MarkDown = require("./models/Markdown")
+const LaTex = require("./models/LaTex.js")
 const ioServer = require("socket.io")(3003, {
   cors: {
     origin:'http://localhost:3000',
@@ -22,6 +25,7 @@ const ioServer = require("socket.io")(3003, {
 
 ioServer.use(verifyUser);
 ioServer.on("connection", (socket) => {
+  console.log("Connected");
   socket.on("get-document", async ({ documentId, Title }) => {
     const document = await findOrCreateDocument(documentId, socket.user, Title);
     socket.join(documentId)
@@ -50,10 +54,19 @@ ioServer.on("connection", (socket) => {
     } 
   })
 
+  socket.on("get-markdowns", async () => {
+    if (socket.user) {
+      const user = socket.user;
+      const markdowns = await findAllMarkdown(user);
+      socket.emit('found-markdown', markdowns);
+    } else {
+      socket.emit("Error", "Unauthorized");
+    }
+  })
+
   socket.on("get-markdown", async ({documentId, Title}) => {
     const document = await findOrCreateMarkdown(documentId, socket.user, Title);
     socket.join(documentId);
-    console.log("joined")
     socket.emit("load-markdown", document);
     socket.emit("title-sent", document);
     
@@ -70,19 +83,33 @@ ioServer.on("connection", (socket) => {
     socket.broadcast.to(documentId).emit('update-markdown', markDown);
   })
 
-  
-
-  
-
-  socket.on("get-markdowns", async () => {
+  socket.on("get-latexs", async () => {
     if (socket.user) {
       const user = socket.user;
-      const markdowns = await findAllMarkdown(user);
-      socket.emit('found-markdown', markdowns);
+      const latex = await findAllLaTex(user);
+      socket.emit('found-latexs', latex);
     } else {
       socket.emit("Error", "Unauthorized");
     }
   })
+
+  socket.on("get-latex", async ({documentId, Title}) => {
+    const document = await findOrCreateLatex(documentId, socket.user, Title);
+    socket.join(documentId);
+    socket.emit("load-latex", document);
+    socket.emit("title-sent-latex", document);
+  })
+  
+  socket.on("save-latex", async ({documentId, latex}) => {
+    await LaTex.findByIdAndUpdate(documentId, {data: latex});
+    //Sharing to be implemented later
+    //socket.broadcast.to(documentId).emit('update-latex', latex);
+  })
+
+  socket.on("save-latextitle", async({documentId, Title}) => {
+    await LaTex.findByIdAndUpdate(documentId, {title:Title});
+  })
+  
 
   //error is likely caused by this
   socket.on('message', async (data) => {
