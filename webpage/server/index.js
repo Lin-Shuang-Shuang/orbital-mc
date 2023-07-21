@@ -61,11 +61,13 @@ ioServer.on("connection", (socket) => {
 
   socket.on("save-markdowntitle", async ({documentId, Title}) => {
     await MarkDown.findByIdAndUpdate(documentId, {title: Title})
+    socket.broadcast.to(documentId).emit('update-title', Title);
   })
   
 
   socket.on("save-markdown", async ({documentId, markDown}) => {
     await MarkDown.findByIdAndUpdate(documentId, {data: markDown});
+    socket.broadcast.to(documentId).emit('update-markdown', markDown);
   })
 
   
@@ -84,11 +86,13 @@ ioServer.on("connection", (socket) => {
 
   //error is likely caused by this
   socket.on('message', async (data) => {
-    socket.emit('messageResponse', data);
+    //socket.broadcast.emit('messageResponse', data);
+    //Alternatively
+    ioServer.emit('messageResponse', data);
   })
 
   socket.on('disconnect', async () => {
-    console.log('🔥: A user disconnected');
+    console.log('A user disconnected');
   })
 })
 

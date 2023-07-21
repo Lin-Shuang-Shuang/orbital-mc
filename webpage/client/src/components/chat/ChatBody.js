@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function ChatBody({messages}) {
-  const username = localStorage.getItem("username");
+  const token = localStorage.getItem("jsontoken");
+
   return (
     <>
       <header className="chat-mainHeader">
@@ -12,7 +13,7 @@ export default function ChatBody({messages}) {
       {/*messages received by you*/}
       <div className="message-container">
         {messages.map((message) =>
-          message.name === username ? (
+          message.name === token ? (
             <div className="message-chats" key={message.id}>
               <p className="sender-name">You</p>
               <div className="message-sender">

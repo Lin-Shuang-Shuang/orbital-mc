@@ -43,6 +43,7 @@ export default function MarkDown() {
     }
   }, [token])
 
+
   //Get or create document
   useEffect(() => {
     if (socket == null) return
@@ -54,53 +55,35 @@ export default function MarkDown() {
     socket.emit("get-markdown", {documentId, Title});
   }, [socket, documentId])
 
-  //saves document every couple millisec
+  //Saves the document whenever changes are made
   useEffect(() => {
-    if (socket == null) return
-    const interval = setInterval(() => {
-      socket.emit("save-markdown", {documentId, markDown})
-    }, SAVE_INTERVAL_MS)
-
-    return () => {
-      clearInterval(interval)
-    }
+    if (socket == null || markDown == null) return;
+    socket.emit("save-markdown", {documentId, markDown});
+   
   }, [socket, documentId, markDown])
 
   useEffect(() => {
-    if (socket == null) return
-    const interval = setInterval(() => {
+    if (socket == null || Title == null) return;
       socket.emit("save-markdowntitle", {documentId, Title})
-    }, SAVE_INTERVAL_MS)
-
-    return () => {
-      clearInterval(interval)
-    }
   }, [socket, documentId, Title])
 
-//Sharing to be implemented later
-/**
-useEffect(() => {
-  if (socket == null) return
-  socket.on("updated-title", document => {
-    console.log(document.title);
-    setTitle(document.title);
-  })
-  return () => {
-    socket.off("updated-title", document => {
-      setTitle(document.title);})
-  }
-}, [socket])
-useEffect(() => {
-  if (socket == null) return
-  socket.on("updated-data", document => {
-    setTitle(document.data);
-  })
-  return () => {
-    socket.off("updated-data", document => {
-      setTitle(document.data);})
-  }
-}, [socket])
-*/
+  //Updates changes from other users
+  useEffect(() => {
+    if (socket == null) return;
+  
+    socket.on('update-markdown', markDown => {
+      setMarkDown(markDown);
+    });
+  
+    socket.on('update-title', title => {
+      setTitle(title);
+    });
+  
+    return () => {
+      socket.off('update-markdown');
+      socket.off('update-title');
+    }
+  }, [socket]);
 
 
 
