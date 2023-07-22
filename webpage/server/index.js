@@ -23,6 +23,17 @@ const ioServer = require("socket.io")(3003, {
   }
 });
 
+app.get("/*", function (req, res) {
+  res.sendFile(
+    path.join(__dirname, "../client/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  )
+})
+
 ioServer.use(verifyUser);
 ioServer.on("connection", (socket) => {
   console.log("Connected");
@@ -133,7 +144,7 @@ const textEditorDbConnection = mongoose.createConnection("mongodb://127.0.0.1:27
 })
 
 //Launch server
-app.listen(3002, () => {
+app.listen(process.env.PORT || 3002, () => {
     console.log("Server running on 3002");
 });
 

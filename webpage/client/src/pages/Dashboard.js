@@ -285,9 +285,7 @@ export default function Dashboard() {
       <UploadButton />
     </div>
 
-    <div >
-      <UploadMarkdownButton />
-    </div>
+
 
       <div className="card-container">
 
@@ -305,7 +303,9 @@ export default function Dashboard() {
       ))}
       </div>
 
-
+   <div>
+      <UploadMarkdownButton />
+    </div>
 <div className="card-container">
       <h1 >Your MarkDown Documents</h1>
             {markdown.map((doc) => (

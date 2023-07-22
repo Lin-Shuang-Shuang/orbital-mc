@@ -301,3 +301,14 @@ textarea:focus {
   margin-top: 20px;
 }
 
+.textarea-latex {
+  /* Add your desired styles here */
+  width: 1000px;
+  height: 500px;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #000; /* You can change the text color here if needed */
+  background-color: #fff; /* You can change the background color here if needed */
+}
