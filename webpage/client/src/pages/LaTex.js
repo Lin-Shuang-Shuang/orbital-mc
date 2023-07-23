@@ -144,7 +144,7 @@ export default function LaTex() {
 
 
     useEffect(() => {
-        const s = io("https://orbital2-api.onrender.com", {query: {token}});
+        const s = io("http://localhost:3003", {query: {token}});
         
         s.once("title-sent-latex", document => {
           setTitle(document.title);
