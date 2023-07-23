@@ -26,7 +26,7 @@ const login = async (request, response) => {
     try {
         const newUser = await userModel.login(input, password);
         const newToken = generateToken(newUser.username);
-        response.json({newToken});
+        response.status(200).json({newToken})
     } catch (error) {
         response.status(500).send({message: error.message});
     }
