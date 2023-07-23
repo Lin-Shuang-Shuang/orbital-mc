@@ -9,7 +9,7 @@ import PrintIcon from '@mui/icons-material/Print';
 export default function ExportMarkdownButton({documentId, title}) {
     const handleExport = async () => {
         try {
-            window.open(`http://localhost:3002/api/fileRouter/exportMarkdown/${documentId}`, "_blank");
+            window.open(`https://orbital2-api.onrender.com/api/fileRouter/exportMarkdown/${documentId}`, "_blank");
         } catch (error) {
             alert('File download error');
         }
