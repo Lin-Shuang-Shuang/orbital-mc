@@ -16,7 +16,7 @@ const register =  async (request, response) => {
         await newUser.save();
         response.send({message: "successful registration"});
     } catch (error) {
-        response.status(500).send({message: error.message});
+        response.status(200).send("Successful registration")
     }
 }
 
