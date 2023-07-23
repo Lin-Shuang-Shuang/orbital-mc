@@ -39,8 +39,7 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const {data: response} = await localAxios.post(registerURL, {username, email, password});
-      console.log(response.data);
+      await localAxios.post(registerURL, {username, email, password});
       navigate("/Login");
     } catch(error) {
       setError(error.response.data.message);
