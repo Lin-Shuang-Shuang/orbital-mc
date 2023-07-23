@@ -14,9 +14,9 @@ const register =  async (request, response) => {
     try {
         const newUser = await userModel.register(username, email, password);
         await newUser.save();
-        response.send({message: "successful registration"});
-    } catch (error) {
         response.status(200).send("Successful registration")
+    } catch (error) {
+        response.status(500).send({message: error.message});
     }
 }
 
