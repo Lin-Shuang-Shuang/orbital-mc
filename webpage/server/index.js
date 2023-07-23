@@ -18,7 +18,7 @@ const MarkDown = require("./models/Markdown")
 const LaTex = require("./models/LaTex.js")
 const ioServer = require("socket.io")(3003, {
   cors: {
-    origin:'http://localhost:3000',
+    origin:'https://orbital2.onrender.com',
     methods: ['GET', 'POST'],
   }
 });
