@@ -126,10 +126,10 @@ ioServer.on("connection", (socket) => {
 })
 
 // Connect to database for signing in
-const userDbConnection = mongoose.connect("mongodb://127.0.0.1:27017/user-basic");
+const userDbConnection = mongoose.connect("mongodb+srv://starlight:starlight2015@orbitalcluster.gkxufwu.mongodb.net/user-basic");
 
 // Connect to database for text editor
-const textEditorDbConnection = mongoose.createConnection("mongodb://127.0.0.1:27017/socketio-db", {
+const textEditorDbConnection = mongoose.createConnection("mongodb+srv://starlight:starlight2015@orbitalcluster.gkxufwu.mongodb.net/socketio-db", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
