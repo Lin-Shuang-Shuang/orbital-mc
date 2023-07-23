@@ -165,7 +165,7 @@ export default function LoginHome() {
 
 //connect to socket.io
     useEffect(() => {
-        const s = io("http://localhost:3003", {query: {token}});
+        const s = io("https://orbital2-api.onrender.com:3003", {query: {token}});
         s.once("load-title", title => {
           setTitle(title);
         }) 

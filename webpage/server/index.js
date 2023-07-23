@@ -16,23 +16,14 @@ const {
 const Document = require("./models/Document")
 const MarkDown = require("./models/Markdown")
 const LaTex = require("./models/LaTex.js")
-const ioServer = require("socket.io")(3003, {
+const ioServer = require("socket.io")( 3003, {
   cors: {
-    origin:'http://localhost:3000',
+    origin:'https://orbital2.onrender.com',
     methods: ['GET', 'POST'],
   }
 });
 
-app.get("/*", function (req, res) {
-  res.sendFile(
-    path.join(__dirname, "../client/build/index.html"),
-    function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    }
-  )
-})
+
 
 ioServer.use(verifyUser);
 ioServer.on("connection", (socket) => {
@@ -135,10 +126,10 @@ ioServer.on("connection", (socket) => {
 })
 
 // Connect to database for signing in
-const userDbConnection = mongoose.connect("mongodb://127.0.0.1:27017/user-basic");
+const userDbConnection = mongoose.connect("mongodb+srv://starlight:starlight2015@orbitalcluster.gkxufwu.mongodb.net/user-basic");
 
 // Connect to database for text editor
-const textEditorDbConnection = mongoose.createConnection("mongodb://127.0.0.1:27017/socketio-db", {
+const textEditorDbConnection = mongoose.createConnection("mongodb+srv://starlight:starlight2015@orbitalcluster.gkxufwu.mongodb.net/socketio-db", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

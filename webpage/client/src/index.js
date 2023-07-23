@@ -14,6 +14,9 @@ import Dashboard from "./pages/Dashboard";
 import PostIt from "./pages/PostIt";
 import LaTex from "./pages/LaTex";
 import { v4 as uuidV4} from 'uuid';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+
+if (process.env.NODE_ENV === 'production') disableReactDevTools()
 
 export default function App() {
 
