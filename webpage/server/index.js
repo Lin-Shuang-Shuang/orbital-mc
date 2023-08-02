@@ -16,11 +16,12 @@ const {
 const Document = require("./models/Document")
 const MarkDown = require("./models/Markdown")
 const LaTex = require("./models/LaTex.js")
-const ioServer = require("socket.io")(3003, {
-  cors: {
-    origin:'https://orbital2.onrender.com',
-    methods: ['GET', 'POST'],
-  }
+const ioServer = new Server(server, {
+    maxHttpBufferSize: 1e7/2,
+    cors: {
+      origin:['https://orbital2.onrender.com','http://localhost:3003']
+      methods: ['GET', 'POST'],
+    }
 });
 
 
