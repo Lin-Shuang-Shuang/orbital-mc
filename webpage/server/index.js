@@ -13,10 +13,19 @@ const {
   findOrCreateLatex
 } = require("./controllers/SocketController.js");
 
+//Set up new server for socketIO
+const http = require("http");
+const express = require('express');
+const cors = require('cors');
+const socketapp = express();
+socketapp.use(cors());
+socketapp.use(express.json());
+const socketServer = http.createServer(socketapp);
+
 const Document = require("./models/Document")
 const MarkDown = require("./models/Markdown")
 const LaTex = require("./models/LaTex.js")
-const ioServer = new Server(server, {
+const ioServer = new Server(socketServer, {
     maxHttpBufferSize: 1e7/2,
     cors: {
       origin:['https://orbital2.onrender.com','http://localhost:3003']
@@ -139,6 +148,10 @@ const textEditorDbConnection = mongoose.createConnection("mongodb+srv://starligh
 app.listen(process.env.PORT || 3002, () => {
     console.log("Server running on 3002");
 });
+
+socketServer.listen(3003, () => {
+  console.log('SocketServer running on 3003');
+})
 
 const defaultValue = ""
 
