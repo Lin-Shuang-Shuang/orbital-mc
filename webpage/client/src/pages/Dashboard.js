@@ -151,7 +151,7 @@ export default function Dashboard() {
   const [latex, setLatex] = useState([]);
   //connect to socket.io
   useEffect(() => {
-    const s = io("https://orbital2-api.onrender.com", {query: {token}});
+    const s = io("https://orbital2-api.onrender.com:3003", {query: {token}});
     s.on('connect', () => {
     s.emit('get-all');
     s.emit('get-markdowns');
