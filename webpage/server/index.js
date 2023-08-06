@@ -28,7 +28,7 @@ const LaTex = require("./models/LaTex.js")
 const ioServer = new Server(socketServer, {
     maxHttpBufferSize: 1e7/2,
     cors: {
-      origin:['https://orbital2.onrender.com','http://localhost:3003']
+      origin:['https://orbital2.onrender.com','http://localhost:3003'],
       methods: ['GET', 'POST'],
     }
 });
